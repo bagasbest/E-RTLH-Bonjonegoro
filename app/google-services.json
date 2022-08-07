@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799361284831",
+    "project_id": "e-rtlh-bonjonegoro",
+    "storage_bucket": "e-rtlh-bonjonegoro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799361284831:android:8fd3d2ab442458ee1c076a",
+        "android_client_info": {
+          "package_name": "com.sounekatlogo.ertlhbojonegoro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799361284831-478qcfhugruvm4nqb31ghpvlpoghvkjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi7zY94jaiX9QgC9N6a_aa3rAnn8hO6cM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799361284831-478qcfhugruvm4nqb31ghpvlpoghvkjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
