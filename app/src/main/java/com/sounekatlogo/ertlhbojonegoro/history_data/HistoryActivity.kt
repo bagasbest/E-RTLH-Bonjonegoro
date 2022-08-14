@@ -1,63 +1,44 @@
-package com.sounekatlogo.ertlhbojonegoro
+package com.sounekatlogo.ertlhbojonegoro.history_data
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
-import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityHomeBinding
-import com.sounekatlogo.ertlhbojonegoro.history_data.HistoryActivity
-import com.sounekatlogo.ertlhbojonegoro.register.RegisterUserActivity
-import com.sounekatlogo.ertlhbojonegoro.survey.SurveyActivity
+import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityHistoryBinding
 import com.sounekatlogo.ertlhbojonegoro.survey.SurveyAdapter
 import com.sounekatlogo.ertlhbojonegoro.survey.SurveyModel
-import com.sounekatlogo.ertlhbojonegoro.utils.Common
 import com.sounekatlogo.ertlhbojonegoro.utils.DBHelper
 
-class HomeActivity : AppCompatActivity() {
-    private var _binding : ActivityHomeBinding? = null
-    private val binding get() = _binding!!
-    private var adapter: SurveyAdapter? = null
-    private var uid = ""
-    private var surveyList = ArrayList<SurveyModel>()
+class HistoryActivity : AppCompatActivity() {
 
-    override fun onResume() {
-        super.onResume()
-        checkRole()
-    }
+    private var _binding : ActivityHistoryBinding? = null
+    private val binding get() = _binding!!
+    private var adapter : HistoryAdapter? = null
+    private var surveyList = ArrayList<SurveyModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityHomeBinding.inflate(layoutInflater)
+        _binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getData()
+        initRecyclerView()
 
-        binding.apply {
-            otherData.setOnClickListener {
-                startActivity(Intent(this@HomeActivity, RegisterUserActivity::class.java))
-            }
-            logout.setOnClickListener {
-                showLogoutDialog()
-            }
-            addData.setOnClickListener {
-                startActivity(Intent(this@HomeActivity, SurveyActivity::class.java))
-            }
-            historyData.setOnClickListener {
-                startActivity(Intent(this@HomeActivity, HistoryActivity::class.java))
-            }
+        binding.backButton.setOnClickListener {
+            onBackPressed()
         }
+
     }
 
     @SuppressLint("Range")
     private fun getData() {
         surveyList.clear()
+        val prefs = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
+        val myUid = prefs.getString("uid", "").toString()
+
         val db = DBHelper(this, null)
-        val cursor = db.getAllSurvey(uid)
+        val cursor = db.getAllSurvey(myUid)
         cursor!!.moveToFirst()
         val uid = cursor.getString(cursor.getColumnIndex(DBHelper.uid))
         val nama = cursor.getString(cursor.getColumnIndex(DBHelper.nama))
@@ -179,59 +160,18 @@ class HomeActivity : AppCompatActivity() {
         }
 
         adapter?.setData(surveyList)
-
-        var belumDiupload = 0
-        surveyList.forEach {
-            if(it.status1 == "Belum Diupload") {
-                belumDiupload++
-            }
-        }
-        binding.textView4.text = belumDiupload.toString()
-
         cursor.close()
     }
 
     private fun initRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.reverseLayout = true
+        layoutManager.stackFromEnd = true
         binding.rvSurvery.layoutManager = layoutManager
-        adapter = SurveyAdapter()
+        adapter = HistoryAdapter()
         binding.rvSurvery.adapter = adapter
-        adapter?.setData(surveyList)
+        adapter!!.setData(surveyList)
     }
-
-    private fun checkRole() {
-        val prefs = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
-        uid = prefs.getString("uid", "").toString()
-        if(uid == Common.uid) {
-            binding.registerUser.visibility = View.VISIBLE
-        }
-        try {
-            getData()
-            initRecyclerView()
-        } catch (e :Exception) {
-            e.printStackTrace()
-        }
-
-    }
-
-    private fun showLogoutDialog() {
-        AlertDialog.Builder(this)
-            .setMessage("Apakah anda ingin logout dari akun ini ?")
-            .setIcon(R.drawable.ic_baseline_warning_24)
-            .setPositiveButton("YA") { dialogInterface, _ ->
-                dialogInterface.dismiss()
-                FirebaseAuth.getInstance().signOut()
-
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-                finish()
-            }
-            .setNegativeButton("TIDAK", null)
-            .show()
-    }
-
 
     override fun onDestroy() {
         super.onDestroy()

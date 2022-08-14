@@ -1,0 +1,2582 @@
+[
+  {
+    "No.": "1",
+    "Desa": "Banjarsari",
+    "Kode Wilayah": "35.22.23.2001",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "2",
+    "Desa": "Guyangan",
+    "Kode Wilayah": "35.22.23.2007",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "3",
+    "Desa": "Kandangan",
+    "Kode Wilayah": "35.22.23.2011",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "4",
+    "Desa": "Kanten",
+    "Kode Wilayah": "35.22.23.2010",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "5",
+    "Desa": "Mori",
+    "Kode Wilayah": "35.22.23.2004",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "6",
+    "Desa": "Padang",
+    "Kode Wilayah": "35.22.23.2005",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "7",
+    "Desa": "Pagerwesi",
+    "Kode Wilayah": "35.22.23.2012",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "8",
+    "Desa": "Sranak",
+    "Kode Wilayah": "35.22.23.2008",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "9",
+    "Desa": "Sumbangtimun (Sumbang Timun)",
+    "Kode Wilayah": "35.22.23.2009",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "10",
+    "Desa": "Sumberejo",
+    "Kode Wilayah": "35.22.23.2006",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "11",
+    "Desa": "Trucuk",
+    "Kode Wilayah": "35.22.23.2003",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "12",
+    "Desa": "Tulungrejo",
+    "Kode Wilayah": "35.22.23.2002",
+    "Kecamatan": "Trucuk"
+  },
+  {
+    "No.": "13",
+    "Desa": "Bakulan",
+    "Kode Wilayah": "35.22.21.2008",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "14",
+    "Desa": "Belun",
+    "Kode Wilayah": "35.22.21.2006",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "15",
+    "Desa": "Buntalan",
+    "Kode Wilayah": "35.22.21.2011",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "16",
+    "Desa": "Jono",
+    "Kode Wilayah": "35.22.21.2009",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "17",
+    "Desa": "Kedungsari",
+    "Kode Wilayah": "35.22.21.2002",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "18",
+    "Desa": "Kedungsumber",
+    "Kode Wilayah": "35.22.21.2001",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "19",
+    "Desa": "Ngujung",
+    "Kode Wilayah": "35.22.21.2010",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "20",
+    "Desa": "Pancur",
+    "Kode Wilayah": "35.22.21.2012",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "21",
+    "Desa": "Pandantoyo",
+    "Kode Wilayah": "35.22.21.2005",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "22",
+    "Desa": "Papringan",
+    "Kode Wilayah": "35.22.21.2003",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "23",
+    "Desa": "Soko",
+    "Kode Wilayah": "35.22.21.2004",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "24",
+    "Desa": "Temayang",
+    "Kode Wilayah": "35.22.21.2007",
+    "Kecamatan": "Temayang"
+  },
+  {
+    "No.": "25",
+    "Desa": "Bakalan",
+    "Kode Wilayah": "35.22.02.2007",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "26",
+    "Desa": "Dolokgede (Dolok Gede)",
+    "Kode Wilayah": "35.22.02.2016",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "27",
+    "Desa": "Gading",
+    "Kode Wilayah": "35.22.02.2010",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "28",
+    "Desa": "Gamongan",
+    "Kode Wilayah": "35.22.02.2013",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "29",
+    "Desa": "Jatimulyo",
+    "Kode Wilayah": "35.22.02.2002",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "30",
+    "Desa": "Jawik",
+    "Kode Wilayah": "35.22.02.2008",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "31",
+    "Desa": "Kacangan",
+    "Kode Wilayah": "35.22.02.2018",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "32",
+    "Desa": "Kalisumber",
+    "Kode Wilayah": "35.22.02.2014",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "33",
+    "Desa": "Malingmati (Maling Mati)",
+    "Kode Wilayah": "35.22.02.2005",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "34",
+    "Desa": "Mulyorejo",
+    "Kode Wilayah": "35.22.02.2015",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "35",
+    "Desa": "Napis",
+    "Kode Wilayah": "35.22.02.2001",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "36",
+    "Desa": "Ngrancang",
+    "Kode Wilayah": "35.22.02.2003",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "37",
+    "Desa": "Pengkol",
+    "Kode Wilayah": "35.22.02.2011",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "38",
+    "Desa": "Sendangrejo",
+    "Kode Wilayah": "35.22.02.2017",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "39",
+    "Desa": "Sukorejo",
+    "Kode Wilayah": "35.22.02.2009",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "40",
+    "Desa": "Tambakrejo (Tambak Rejo)",
+    "Kode Wilayah": "35.22.02.2006",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "41",
+    "Desa": "Tanjung",
+    "Kode Wilayah": "35.22.02.2012",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "42",
+    "Desa": "Turi",
+    "Kode Wilayah": "35.22.02.2004",
+    "Kecamatan": "Tambakrejo"
+  },
+  {
+    "No.": "43",
+    "Desa": "Banjarejo (Banjarjo)",
+    "Kode Wilayah": "35.22.12.2005",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "44",
+    "Desa": "Bogangin",
+    "Kode Wilayah": "35.22.12.2024",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "45",
+    "Desa": "Butoh",
+    "Kode Wilayah": "35.22.12.2018",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "46",
+    "Desa": "Deru",
+    "Kode Wilayah": "35.22.12.2012",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "47",
+    "Desa": "Jatigede",
+    "Kode Wilayah": "35.22.12.2022",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "48",
+    "Desa": "Karangdinoyo (Karang Dinoyo)",
+    "Kode Wilayah": "35.22.12.2017",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "49",
+    "Desa": "Karangdowo",
+    "Kode Wilayah": "35.22.12.2014",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "50",
+    "Desa": "Kayulemah",
+    "Kode Wilayah": "35.22.12.2007",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "51",
+    "Desa": "Kedungrejo",
+    "Kode Wilayah": "35.22.12.2003",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "52",
+    "Desa": "Margoagung",
+    "Kode Wilayah": "35.22.12.2026",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "53",
+    "Desa": "Mejuwet",
+    "Kode Wilayah": "35.22.12.2019",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "54",
+    "Desa": "Mlinjeng",
+    "Kode Wilayah": "35.22.12.2004",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "55",
+    "Desa": "Ngampal",
+    "Kode Wilayah": "35.22.12.2002",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "56",
+    "Desa": "Pejambon",
+    "Kode Wilayah": "35.22.12.2015",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "57",
+    "Desa": "Pekuwon",
+    "Kode Wilayah": "35.22.12.2013",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "58",
+    "Desa": "Prayungan",
+    "Kode Wilayah": "35.22.12.2020",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "59",
+    "Desa": "Sambongrejo",
+    "Kode Wilayah": "35.22.12.2010",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "60",
+    "Desa": "Sendangagung",
+    "Kode Wilayah": "35.22.12.2011",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "61",
+    "Desa": "Sumberharjo",
+    "Kode Wilayah": "35.22.12.2025",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "62",
+    "Desa": "Sumberrejo (Sumberejo)",
+    "Kode Wilayah": "35.22.12.2006",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "63",
+    "Desa": "Sumuragung",
+    "Kode Wilayah": "35.22.12.2021",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "64",
+    "Desa": "Talun",
+    "Kode Wilayah": "35.22.12.2023",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "65",
+    "Desa": "Teleng",
+    "Kode Wilayah": "35.22.12.2008",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "66",
+    "Desa": "Tlogohaji",
+    "Kode Wilayah": "35.22.12.2001",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "67",
+    "Desa": "Tulungrejo",
+    "Kode Wilayah": "35.22.12.2016",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "68",
+    "Desa": "Wotan",
+    "Kode Wilayah": "35.22.12.2009",
+    "Kecamatan": "Sumberejo"
+  },
+  {
+    "No.": "69",
+    "Desa": "Duyungan",
+    "Kode Wilayah": "35.22.24.2010",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "70",
+    "Desa": "Jumput",
+    "Kode Wilayah": "35.22.24.2009",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "71",
+    "Desa": "Kalicilik",
+    "Kode Wilayah": "35.22.24.2002",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "72",
+    "Desa": "Klepek",
+    "Kode Wilayah": "35.22.24.2004",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "73",
+    "Desa": "Pacing",
+    "Kode Wilayah": "35.22.24.2008",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "74",
+    "Desa": "Purwoasri",
+    "Kode Wilayah": "35.22.24.2007",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "75",
+    "Desa": "Semawot",
+    "Kode Wilayah": "35.22.24.2001",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "76",
+    "Desa": "Semenkidul (Semen Kidul)",
+    "Kode Wilayah": "35.22.24.2011",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "77",
+    "Desa": "Sidodadi",
+    "Kode Wilayah": "35.22.24.2012",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "78",
+    "Desa": "Sidorejo",
+    "Kode Wilayah": "35.22.24.2013",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "79",
+    "Desa": "Sitiaji",
+    "Kode Wilayah": "35.22.24.2006",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "80",
+    "Desa": "Sukosewu",
+    "Kode Wilayah": "35.22.24.2003",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "81",
+    "Desa": "Sumberejo Kidul",
+    "Kode Wilayah": "35.22.24.2014",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "82",
+    "Desa": "Tegalkodo",
+    "Kode Wilayah": "35.22.24.2005",
+    "Kecamatan": "Sukosewu"
+  },
+  {
+    "No.": "83",
+    "Desa": "Alasgung",
+    "Kode Wilayah": "35.22.07.2005",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "84",
+    "Desa": "Balongrejo",
+    "Kode Wilayah": "35.22.07.2016",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "85",
+    "Desa": "Bareng",
+    "Kode Wilayah": "35.22.07.2001",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "86",
+    "Desa": "Bulu",
+    "Kode Wilayah": "35.22.07.2012",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "87",
+    "Desa": "Drenges",
+    "Kode Wilayah": "35.22.07.2002",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "88",
+    "Desa": "Genjor",
+    "Kode Wilayah": "35.22.07.2017",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "89",
+    "Desa": "Glagahan",
+    "Kode Wilayah": "35.22.07.2007",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "90",
+    "Desa": "Glagahwangi (Glagah Wangi)",
+    "Kode Wilayah": "35.22.07.2015",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "91",
+    "Desa": "Jatitengah",
+    "Kode Wilayah": "35.22.07.2009",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "92",
+    "Desa": "Kedungdowo",
+    "Kode Wilayah": "35.22.07.2014",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "93",
+    "Desa": "Nglajang",
+    "Kode Wilayah": "35.22.07.2013",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "94",
+    "Desa": "Panemon",
+    "Kode Wilayah": "35.22.07.2008",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "95",
+    "Desa": "Panunggalan",
+    "Kode Wilayah": "35.22.07.2004",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "96",
+    "Desa": "Siwalan",
+    "Kode Wilayah": "35.22.07.2006",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "97",
+    "Desa": "Sugihwaras",
+    "Kode Wilayah": "35.22.07.2010",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "98",
+    "Desa": "Trate",
+    "Kode Wilayah": "35.22.07.2011",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "99",
+    "Desa": "Wedoro",
+    "Kode Wilayah": "35.22.07.2003",
+    "Kecamatan": "Sugihwaras"
+  },
+  {
+    "No.": "100",
+    "Desa": "Bareng",
+    "Kode Wilayah": "35.22.27.2006",
+    "Kecamatan": "Sekar"
+  },
+  {
+    "No.": "101",
+    "Desa": "Bobol",
+    "Kode Wilayah": "35.22.27.2001",
+    "Kecamatan": "Sekar"
+  },
+  {
+    "No.": "102",
+    "Desa": "Deling",
+    "Kode Wilayah": "35.22.27.2005",
+    "Kecamatan": "Sekar"
+  },
+  {
+    "No.": "103",
+    "Desa": "Klino",
+    "Kode Wilayah": "35.22.27.2004",
+    "Kecamatan": "Sekar"
+  },
+  {
+    "No.": "104",
+    "Desa": "Miyono",
+    "Kode Wilayah": "35.22.27.2002",
+    "Kecamatan": "Sekar"
+  },
+  {
+    "No.": "105",
+    "Desa": "Sekar",
+    "Kode Wilayah": "35.22.27.2003",
+    "Kecamatan": "Sekar"
+  },
+  {
+    "No.": "106",
+    "Desa": "Donan",
+    "Kode Wilayah": "35.22.18.2012",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "107",
+    "Desa": "Gapluk",
+    "Kode Wilayah": "35.22.18.2010",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "108",
+    "Desa": "Kaliombo",
+    "Kode Wilayah": "35.22.18.2004",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "109",
+    "Desa": "Kuniran",
+    "Kode Wilayah": "35.22.18.2011",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "110",
+    "Desa": "Ngrejeng",
+    "Kode Wilayah": "35.22.18.2002",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "111",
+    "Desa": "Pelem",
+    "Kode Wilayah": "35.22.18.2001",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "112",
+    "Desa": "Pojok",
+    "Kode Wilayah": "35.22.18.2008",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "113",
+    "Desa": "Punggur",
+    "Kode Wilayah": "35.22.18.2006",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "114",
+    "Desa": "Purwosari",
+    "Kode Wilayah": "35.22.18.2009",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "115",
+    "Desa": "Sedahkidul",
+    "Kode Wilayah": "35.22.18.2007",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "116",
+    "Desa": "Tinumpuk",
+    "Kode Wilayah": "35.22.18.2005",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "117",
+    "Desa": "Tlatah",
+    "Kode Wilayah": "35.22.18.2003",
+    "Kecamatan": "Purwosari"
+  },
+  {
+    "No.": "118",
+    "Desa": "Banjarejo (Banjarjo)",
+    "Kode Wilayah": "35.22.19.2014",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "119",
+    "Desa": "Cendono",
+    "Kode Wilayah": "35.22.19.2006",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "120",
+    "Desa": "Dengok",
+    "Kode Wilayah": "35.22.19.2009",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "121",
+    "Desa": "Kebonagung (Kebunagung)",
+    "Kode Wilayah": "35.22.19.2015",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "122",
+    "Desa": "Kendung",
+    "Kode Wilayah": "35.22.19.2016",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "123",
+    "Desa": "Kuncen",
+    "Kode Wilayah": "35.22.19.2011",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "124",
+    "Desa": "Ngasinan",
+    "Kode Wilayah": "35.22.19.2005",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "125",
+    "Desa": "Ngeper",
+    "Kode Wilayah": "35.22.19.2004",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "126",
+    "Desa": "Ngradin",
+    "Kode Wilayah": "35.22.19.2013",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "127",
+    "Desa": "Nguken",
+    "Kode Wilayah": "35.22.19.2008",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "128",
+    "Desa": "Padangan",
+    "Kode Wilayah": "35.22.19.2010",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "129",
+    "Desa": "Prangi",
+    "Kode Wilayah": "35.22.19.2002",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "130",
+    "Desa": "Purworejo",
+    "Kode Wilayah": "35.22.19.2003",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "131",
+    "Desa": "Sidorejo",
+    "Kode Wilayah": "35.22.19.2007",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "132",
+    "Desa": "Sonorejo",
+    "Kode Wilayah": "35.22.19.2012",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "133",
+    "Desa": "Tebon",
+    "Kode Wilayah": "35.22.19.2001",
+    "Kecamatan": "Padangan"
+  },
+  {
+    "No.": "134",
+    "Desa": "Bancer",
+    "Kode Wilayah": "35.22.01.2015",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "135",
+    "Desa": "Blimbinggede (Blimbing Gede)",
+    "Kode Wilayah": "35.22.01.2008",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "136",
+    "Desa": "Jumok",
+    "Kode Wilayah": "35.22.01.2004",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "137",
+    "Desa": "Kalirejo",
+    "Kode Wilayah": "35.22.01.2009",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "138",
+    "Desa": "Klempun",
+    "Kode Wilayah": "35.22.01.2016",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "139",
+    "Desa": "Luwihaji",
+    "Kode Wilayah": "35.22.01.2001",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "140",
+    "Desa": "Mojorejo",
+    "Kode Wilayah": "35.22.01.2006",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "141",
+    "Desa": "Nganti",
+    "Kode Wilayah": "35.22.01.2003",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "142",
+    "Desa": "Ngraho",
+    "Kode Wilayah": "35.22.01.2007",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "143",
+    "Desa": "Pandan",
+    "Kode Wilayah": "35.22.01.2012",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "144",
+    "Desa": "Payaman",
+    "Kode Wilayah": "35.22.01.2014",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "145",
+    "Desa": "Sugihwaras (Sugih Waras)",
+    "Kode Wilayah": "35.22.01.2002",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "146",
+    "Desa": "Sumberagung",
+    "Kode Wilayah": "35.22.01.2005",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "147",
+    "Desa": "Sumberarum",
+    "Kode Wilayah": "35.22.01.2013",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "148",
+    "Desa": "Tanggungan",
+    "Kode Wilayah": "35.22.01.2011",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "149",
+    "Desa": "Tapelan",
+    "Kode Wilayah": "35.22.01.2010",
+    "Kecamatan": "Ngraho"
+  },
+  {
+    "No.": "150",
+    "Desa": "Bandungrejo",
+    "Kode Wilayah": "35.22.04.2009",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "151",
+    "Desa": "Bareng",
+    "Kode Wilayah": "35.22.04.2016",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "152",
+    "Desa": "Butoh",
+    "Kode Wilayah": "35.22.04.2001",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "153",
+    "Desa": "Dukohkidul",
+    "Kode Wilayah": "35.22.04.2013",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "154",
+    "Desa": "Jampet",
+    "Kode Wilayah": "35.22.04.2015",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "155",
+    "Desa": "Jelu",
+    "Kode Wilayah": "35.22.04.2017",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "156",
+    "Desa": "Kolong",
+    "Kode Wilayah": "35.22.04.2005",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "157",
+    "Desa": "Mediyunan",
+    "Kode Wilayah": "35.22.04.2004",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "158",
+    "Desa": "Ngadiluwih",
+    "Kode Wilayah": "35.22.04.2007",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "159",
+    "Desa": "Ngantru",
+    "Kode Wilayah": "35.22.04.2011",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "160",
+    "Desa": "Ngasem",
+    "Kode Wilayah": "35.22.04.2008",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "161",
+    "Desa": "Sambong",
+    "Kode Wilayah": "35.22.04.2012",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "162",
+    "Desa": "Sendangharjo",
+    "Kode Wilayah": "35.22.04.2006",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "163",
+    "Desa": "Setren",
+    "Kode Wilayah": "35.22.04.2003",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "164",
+    "Desa": "Tengger",
+    "Kode Wilayah": "35.22.04.2010",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "165",
+    "Desa": "Trenggulunan",
+    "Kode Wilayah": "35.22.04.2002",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "166",
+    "Desa": "Wadang",
+    "Kode Wilayah": "35.22.04.2014",
+    "Kecamatan": "Ngasem"
+  },
+  {
+    "No.": "167",
+    "Desa": "Bondol",
+    "Kode Wilayah": "35.22.03.2005",
+    "Kecamatan": "Ngambon"
+  },
+  {
+    "No.": "168",
+    "Desa": "Karangmangu",
+    "Kode Wilayah": "35.22.03.2002",
+    "Kecamatan": "Ngambon"
+  },
+  {
+    "No.": "169",
+    "Desa": "Ngambon",
+    "Kode Wilayah": "35.22.03.2003",
+    "Kecamatan": "Ngambon"
+  },
+  {
+    "No.": "170",
+    "Desa": "Nglamping (Nglampin)",
+    "Kode Wilayah": "35.22.03.2001",
+    "Kecamatan": "Ngambon"
+  },
+  {
+    "No.": "171",
+    "Desa": "Sengon",
+    "Kode Wilayah": "35.22.03.2004",
+    "Kecamatan": "Ngambon"
+  },
+  {
+    "No.": "172",
+    "Desa": "Geneng",
+    "Kode Wilayah": "35.22.22.2006",
+    "Kecamatan": "Margomulyo"
+  },
+  {
+    "No.": "173",
+    "Desa": "Kalangan",
+    "Kode Wilayah": "35.22.22.2001",
+    "Kecamatan": "Margomulyo"
+  },
+  {
+    "No.": "174",
+    "Desa": "Margomulyo",
+    "Kode Wilayah": "35.22.22.2003",
+    "Kecamatan": "Margomulyo"
+  },
+  {
+    "No.": "175",
+    "Desa": "Meduri",
+    "Kode Wilayah": "35.22.22.2005",
+    "Kecamatan": "Margomulyo"
+  },
+  {
+    "No.": "176",
+    "Desa": "Ngelo",
+    "Kode Wilayah": "35.22.22.2002",
+    "Kecamatan": "Margomulyo"
+  },
+  {
+    "No.": "177",
+    "Desa": "Sumberejo",
+    "Kode Wilayah": "35.22.22.2004",
+    "Kecamatan": "Margomulyo"
+  },
+  {
+    "No.": "178",
+    "Desa": "Banaran",
+    "Kode Wilayah": "35.22.17.2007",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "179",
+    "Desa": "Dukohlor (Dukuh Lor)",
+    "Kode Wilayah": "35.22.17.2001",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "180",
+    "Desa": "Kacangan",
+    "Kode Wilayah": "35.22.17.2002",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "181",
+    "Desa": "Kedungrejo",
+    "Kode Wilayah": "35.22.17.2012",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "182",
+    "Desa": "Kemiri",
+    "Kode Wilayah": "35.22.17.2003",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "183",
+    "Desa": "Ketileng",
+    "Kode Wilayah": "35.22.17.2013",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "184",
+    "Desa": "Kliteh",
+    "Kode Wilayah": "35.22.17.2016",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "185",
+    "Desa": "Malo",
+    "Kode Wilayah": "35.22.17.2014",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "186",
+    "Desa": "Ngujung",
+    "Kode Wilayah": "35.22.17.2008",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "187",
+    "Desa": "Petak",
+    "Kode Wilayah": "35.22.17.2004",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "188",
+    "Desa": "Rendeng",
+    "Kode Wilayah": "35.22.17.2006",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "189",
+    "Desa": "Semlaran",
+    "Kode Wilayah": "35.22.17.2018",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "190",
+    "Desa": "Sudah",
+    "Kode Wilayah": "35.22.17.2005",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "191",
+    "Desa": "Sukorejo",
+    "Kode Wilayah": "35.22.17.2015",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "192",
+    "Desa": "Sumberejo",
+    "Kode Wilayah": "35.22.17.2009",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "193",
+    "Desa": "Tambakromo",
+    "Kode Wilayah": "35.22.17.2010",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "194",
+    "Desa": "Tanggir",
+    "Kode Wilayah": "35.22.17.2019",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "195",
+    "Desa": "Tinawun",
+    "Kode Wilayah": "35.22.17.2011",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "196",
+    "Desa": "Trembes",
+    "Kode Wilayah": "35.22.17.2017",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "197",
+    "Desa": "Tulungagung",
+    "Kode Wilayah": "35.22.17.2020",
+    "Kecamatan": "Malo"
+  },
+  {
+    "No.": "198",
+    "Desa": "Balongdowo",
+    "Kode Wilayah": "35.22.09.2010",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "199",
+    "Desa": "Bayemgede",
+    "Kode Wilayah": "35.22.09.2014",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "200",
+    "Desa": "Betet",
+    "Kode Wilayah": "35.22.09.2019",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "201",
+    "Desa": "Brangkal",
+    "Kode Wilayah": "35.22.09.2008",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "202",
+    "Desa": "Bumirejo",
+    "Kode Wilayah": "35.22.09.2018",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "203",
+    "Desa": "Cengkir",
+    "Kode Wilayah": "35.22.09.2002",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "204",
+    "Desa": "Jipo",
+    "Kode Wilayah": "35.22.09.2020",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "205",
+    "Desa": "Karangan",
+    "Kode Wilayah": "35.22.09.2023",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "206",
+    "Desa": "Kepoh",
+    "Kode Wilayah": "35.22.09.2003",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "207",
+    "Desa": "Krangkong",
+    "Kode Wilayah": "35.22.09.2006",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "208",
+    "Desa": "Mojosari",
+    "Kode Wilayah": "35.22.09.2009",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "209",
+    "Desa": "Mudung",
+    "Kode Wilayah": "35.22.09.2022",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "210",
+    "Desa": "Nglumber",
+    "Kode Wilayah": "35.22.09.2007",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "211",
+    "Desa": "Ngranggonanyar (Ngranggon Anyar)",
+    "Kode Wilayah": "35.22.09.2021",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "212",
+    "Desa": "Pejok",
+    "Kode Wilayah": "35.22.09.2001",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "213",
+    "Desa": "Pohwates",
+    "Kode Wilayah": "35.22.09.2012",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "214",
+    "Desa": "Sidomukti",
+    "Kode Wilayah": "35.22.09.2004",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "215",
+    "Desa": "Simorejo",
+    "Kode Wilayah": "35.22.09.2005",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "216",
+    "Desa": "Suberoto (Sumberoto)",
+    "Kode Wilayah": "35.22.09.2011",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "217",
+    "Desa": "Sugihwaras",
+    "Kode Wilayah": "35.22.09.2024",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "218",
+    "Desa": "Sumberagung",
+    "Kode Wilayah": "35.22.09.2016",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "219",
+    "Desa": "Sumbergede",
+    "Kode Wilayah": "35.22.09.2025",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "220",
+    "Desa": "Tlogorejo",
+    "Kode Wilayah": "35.22.09.2015",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "221",
+    "Desa": "Turigede",
+    "Kode Wilayah": "35.22.09.2013",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "222",
+    "Desa": "Woro",
+    "Kode Wilayah": "35.22.09.2017",
+    "Kecamatan": "Kepohbaru"
+  },
+  {
+    "No.": "223",
+    "Desa": "Babad",
+    "Kode Wilayah": "35.22.08.2001",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "224",
+    "Desa": "Balongcabe",
+    "Kode Wilayah": "35.22.08.2023",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "225",
+    "Desa": "Dayukidul",
+    "Kode Wilayah": "35.22.08.2003",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "226",
+    "Desa": "Drokilo",
+    "Kode Wilayah": "35.22.08.2017",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "227",
+    "Desa": "Duwel",
+    "Kode Wilayah": "35.22.08.2011",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "228",
+    "Desa": "Geger",
+    "Kode Wilayah": "35.22.08.2013",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "229",
+    "Desa": "Jamberejo",
+    "Kode Wilayah": "35.22.08.2019",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "230",
+    "Desa": "Kedungadem",
+    "Kode Wilayah": "35.22.08.2010",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "231",
+    "Desa": "Kedungrejo",
+    "Kode Wilayah": "35.22.08.2014",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "232",
+    "Desa": "Kendung",
+    "Kode Wilayah": "35.22.08.2007",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "233",
+    "Desa": "Kepohkidul (Kepoh Kidul)",
+    "Kode Wilayah": "35.22.08.2012",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "234",
+    "Desa": "Kesongo",
+    "Kode Wilayah": "35.22.08.2006",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "235",
+    "Desa": "Megale",
+    "Kode Wilayah": "35.22.08.2015",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "236",
+    "Desa": "Mlideg",
+    "Kode Wilayah": "35.22.08.2008",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "237",
+    "Desa": "Mojorejo",
+    "Kode Wilayah": "35.22.08.2018",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "238",
+    "Desa": "Ngrandu",
+    "Kode Wilayah": "35.22.08.2022",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "239",
+    "Desa": "Panjang",
+    "Kode Wilayah": "35.22.08.2004",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "240",
+    "Desa": "Pejok",
+    "Kode Wilayah": "35.22.08.2002",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "241",
+    "Desa": "Sidomulyo",
+    "Kode Wilayah": "35.22.08.2020",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "242",
+    "Desa": "Sidorejo",
+    "Kode Wilayah": "35.22.08.2016",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "243",
+    "Desa": "Tlogoagung",
+    "Kode Wilayah": "35.22.08.2021",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "244",
+    "Desa": "Tondomulo",
+    "Kode Wilayah": "35.22.08.2005",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "245",
+    "Desa": "Tumbrasanom",
+    "Kode Wilayah": "35.22.08.2009",
+    "Kecamatan": "Kedungadem"
+  },
+  {
+    "No.": "246",
+    "Desa": "Beji",
+    "Kode Wilayah": "35.22.25.2005",
+    "Kecamatan": "Kedewan"
+  },
+  {
+    "No.": "247",
+    "Desa": "Hargomulyo",
+    "Kode Wilayah": "35.22.25.2003",
+    "Kecamatan": "Kedewan"
+  },
+  {
+    "No.": "248",
+    "Desa": "Kawengan",
+    "Kode Wilayah": "35.22.25.2001",
+    "Kecamatan": "Kedewan"
+  },
+  {
+    "No.": "249",
+    "Desa": "Kedewan",
+    "Kode Wilayah": "35.22.25.2004",
+    "Kecamatan": "Kedewan"
+  },
+  {
+    "No.": "250",
+    "Desa": "Wonocolo",
+    "Kode Wilayah": "35.22.25.2002",
+    "Kecamatan": "Kedewan"
+  },
+  {
+    "No.": "251",
+    "Desa": "Basah (Besah)",
+    "Kode Wilayah": "35.22.20.2005",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "252",
+    "Desa": "Batokan",
+    "Kode Wilayah": "35.22.20.2001",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "253",
+    "Desa": "Betet",
+    "Kode Wilayah": "35.22.20.2002",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "254",
+    "Desa": "Kasiman",
+    "Kode Wilayah": "35.22.20.2008",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "255",
+    "Desa": "Ngaglik",
+    "Kode Wilayah": "35.22.20.2007",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "256",
+    "Desa": "Sambeng",
+    "Kode Wilayah": "35.22.20.2006",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "257",
+    "Desa": "Sekaran",
+    "Kode Wilayah": "35.22.20.2009",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "258",
+    "Desa": "Sidomukti",
+    "Kode Wilayah": "35.22.20.2004",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "259",
+    "Desa": "Tambakmerak",
+    "Kode Wilayah": "35.22.20.2010",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "260",
+    "Desa": "Tembeling",
+    "Kode Wilayah": "35.22.20.2003",
+    "Kecamatan": "Kasiman"
+  },
+  {
+    "No.": "261",
+    "Desa": "Bakalan",
+    "Kode Wilayah": "35.22.14.2014",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "262",
+    "Desa": "Bangilan",
+    "Kode Wilayah": "35.22.14.2005",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "263",
+    "Desa": "Bendo",
+    "Kode Wilayah": "35.22.14.2002",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "264",
+    "Desa": "Bogo",
+    "Kode Wilayah": "35.22.14.2013",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "265",
+    "Desa": "Kalianyar",
+    "Kode Wilayah": "35.22.14.2017",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "266",
+    "Desa": "Kapas",
+    "Kode Wilayah": "35.22.14.2011",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "267",
+    "Desa": "Kedaton",
+    "Kode Wilayah": "35.22.14.2010",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "268",
+    "Desa": "Klampok",
+    "Kode Wilayah": "35.22.14.2021",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "269",
+    "Desa": "Kumpulrejo (Kumpul Rejo)",
+    "Kode Wilayah": "35.22.14.2001",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "270",
+    "Desa": "Mojodeso",
+    "Kode Wilayah": "35.22.14.2015",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "271",
+    "Desa": "Ngampel",
+    "Kode Wilayah": "35.22.14.2019",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "272",
+    "Desa": "Padangmentoyo (Padang Mentoyo)",
+    "Kode Wilayah": "35.22.14.2003",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "273",
+    "Desa": "Plesungan",
+    "Kode Wilayah": "35.22.14.2009",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "274",
+    "Desa": "Sambiroto",
+    "Kode Wilayah": "35.22.14.2020",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "275",
+    "Desa": "Sembung",
+    "Kode Wilayah": "35.22.14.2006",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "276",
+    "Desa": "Semenpinggir (Semen Pinggir)",
+    "Kode Wilayah": "35.22.14.2012",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "277",
+    "Desa": "Sukowati",
+    "Kode Wilayah": "35.22.14.2016",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "278",
+    "Desa": "Tanjungharjo (Tanjung Harjo)",
+    "Kode Wilayah": "35.22.14.2007",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "279",
+    "Desa": "Tapelan",
+    "Kode Wilayah": "35.22.14.2004",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "280",
+    "Desa": "Tikusan",
+    "Kode Wilayah": "35.22.14.2018",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "281",
+    "Desa": "Wedi",
+    "Kode Wilayah": "35.22.14.2008",
+    "Kecamatan": "Kapas"
+  },
+  {
+    "No.": "282",
+    "Desa": "Bakung",
+    "Kode Wilayah": "35.22.11.2023",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "283",
+    "Desa": "Bungur",
+    "Kode Wilayah": "35.22.11.2022",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "284",
+    "Desa": "Cangaan (Cangakan)",
+    "Kode Wilayah": "35.22.11.2006",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "285",
+    "Desa": "Caruban",
+    "Kode Wilayah": "35.22.11.2014",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "286",
+    "Desa": "Gedongarum",
+    "Kode Wilayah": "35.22.11.2018",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "287",
+    "Desa": "Kabalan",
+    "Kode Wilayah": "35.22.11.2005",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "288",
+    "Desa": "Kanor",
+    "Kode Wilayah": "35.22.11.2002",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "289",
+    "Desa": "Kedungprimpen",
+    "Kode Wilayah": "35.22.11.2019",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "290",
+    "Desa": "Nglarangan",
+    "Kode Wilayah": "35.22.11.2024",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "291",
+    "Desa": "Palembon",
+    "Kode Wilayah": "35.22.11.2012",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "292",
+    "Desa": "Pesen",
+    "Kode Wilayah": "35.22.11.2010",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "293",
+    "Desa": "Pilang",
+    "Kode Wilayah": "35.22.11.2017",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "294",
+    "Desa": "Piyak",
+    "Kode Wilayah": "35.22.11.2004",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "295",
+    "Desa": "Prigi",
+    "Kode Wilayah": "35.22.11.2016",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "296",
+    "Desa": "Samberan",
+    "Kode Wilayah": "35.22.11.2011",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "297",
+    "Desa": "Sarangan",
+    "Kode Wilayah": "35.22.11.2007",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "298",
+    "Desa": "Sedeng",
+    "Kode Wilayah": "35.22.11.2013",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "299",
+    "Desa": "Semambung",
+    "Kode Wilayah": "35.22.11.2001",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "300",
+    "Desa": "Simbatan",
+    "Kode Wilayah": "35.22.11.2009",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "301",
+    "Desa": "Simorejo",
+    "Kode Wilayah": "35.22.11.2021",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "302",
+    "Desa": "Sroyo",
+    "Kode Wilayah": "35.22.11.2025",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "303",
+    "Desa": "Sumberwangi",
+    "Kode Wilayah": "35.22.11.2015",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "304",
+    "Desa": "Tambahrejo",
+    "Kode Wilayah": "35.22.11.2003",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "305",
+    "Desa": "Tejo",
+    "Kode Wilayah": "35.22.11.2008",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "306",
+    "Desa": "Temu",
+    "Kode Wilayah": "35.22.11.2020",
+    "Kecamatan": "Kanor"
+  },
+  {
+    "No.": "307",
+    "Desa": "Brenggolo",
+    "Kode Wilayah": "35.22.16.2010",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "308",
+    "Desa": "Grebegan",
+    "Kode Wilayah": "35.22.16.2011",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "309",
+    "Desa": "Kalitidu",
+    "Kode Wilayah": "35.22.16.2006",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "310",
+    "Desa": "Leran",
+    "Kode Wilayah": "35.22.16.2020",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "311",
+    "Desa": "Mayanggeneng",
+    "Kode Wilayah": "35.22.16.2014",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "312",
+    "Desa": "Mayangrejo",
+    "Kode Wilayah": "35.22.16.2015",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "313",
+    "Desa": "Mlaten",
+    "Kode Wilayah": "35.22.16.2008",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "314",
+    "Desa": "Mojo",
+    "Kode Wilayah": "35.22.16.2023",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "315",
+    "Desa": "Mojosari",
+    "Kode Wilayah": "35.22.16.2017",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "316",
+    "Desa": "Ngiringinrejo (Ngringinrejo)",
+    "Kode Wilayah": "35.22.16.2022",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "317",
+    "Desa": "Ngujo",
+    "Kode Wilayah": "35.22.16.2019",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "318",
+    "Desa": "Panjunan",
+    "Kode Wilayah": "35.22.16.2013",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "319",
+    "Desa": "Pilangsari",
+    "Kode Wilayah": "35.22.16.2016",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "320",
+    "Desa": "Pungpungan",
+    "Kode Wilayah": "35.22.16.2018",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "321",
+    "Desa": "Sukoharjo",
+    "Kode Wilayah": "35.22.16.2021",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "322",
+    "Desa": "Sumengko",
+    "Kode Wilayah": "35.22.16.2007",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "323",
+    "Desa": "Talok",
+    "Kode Wilayah": "35.22.16.2009",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "324",
+    "Desa": "Wotanngare (Wotan Ngare)",
+    "Kode Wilayah": "35.22.16.2012",
+    "Kecamatan": "Kalitidu"
+  },
+  {
+    "No.": "325",
+    "Desa": "Gondang",
+    "Kode Wilayah": "35.22.26.2005",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "326",
+    "Desa": "Jari",
+    "Kode Wilayah": "35.22.26.2002",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "327",
+    "Desa": "Krondonan",
+    "Kode Wilayah": "35.22.26.2001",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "328",
+    "Desa": "Pajeng",
+    "Kode Wilayah": "35.22.26.2004",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "329",
+    "Desa": "Pragelan",
+    "Kode Wilayah": "35.22.26.2007",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "330",
+    "Desa": "Sambongrejo",
+    "Kode Wilayah": "35.22.26.2003",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "331",
+    "Desa": "Senganten (Sengaten)",
+    "Kode Wilayah": "35.22.26.2006",
+    "Kecamatan": "Gondang"
+  },
+  {
+    "No.": "332",
+    "Desa": "Begadon",
+    "Kode Wilayah": "35.22.28.2002",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "333",
+    "Desa": "Beged",
+    "Kode Wilayah": "35.22.28.2007",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "334",
+    "Desa": "Bonorejo",
+    "Kode Wilayah": "35.22.28.2006",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "335",
+    "Desa": "Brabowan",
+    "Kode Wilayah": "35.22.28.2005",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "336",
+    "Desa": "Cengungklung",
+    "Kode Wilayah": "35.22.28.2011",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "337",
+    "Desa": "Gayam",
+    "Kode Wilayah": "35.22.28.2001",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "338",
+    "Desa": "Katur",
+    "Kode Wilayah": "35.22.28.2008",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "339",
+    "Desa": "Manukan",
+    "Kode Wilayah": "35.22.28.2012",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "340",
+    "Desa": "Mojodelik",
+    "Kode Wilayah": "35.22.28.2004",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "341",
+    "Desa": "Ngraho",
+    "Kode Wilayah": "35.22.28.2009",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "342",
+    "Desa": "Ringintunggal",
+    "Kode Wilayah": "35.22.28.2003",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "343",
+    "Desa": "Sudu",
+    "Kode Wilayah": "35.22.28.2010",
+    "Kecamatan": "Gayam"
+  },
+  {
+    "No.": "344",
+    "Desa": "Dander",
+    "Kode Wilayah": "35.22.06.2002",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "345",
+    "Desa": "Growok",
+    "Kode Wilayah": "35.22.06.2003",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "346",
+    "Desa": "Jatiblimbing",
+    "Kode Wilayah": "35.22.06.2006",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "347",
+    "Desa": "Karangsono",
+    "Kode Wilayah": "35.22.06.2010",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "348",
+    "Desa": "Kunci",
+    "Kode Wilayah": "35.22.06.2005",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "349",
+    "Desa": "Mojoranu",
+    "Kode Wilayah": "35.22.06.2008",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "350",
+    "Desa": "Ngablak",
+    "Kode Wilayah": "35.22.06.2016",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "351",
+    "Desa": "Ngraseh",
+    "Kode Wilayah": "35.22.06.2007",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "352",
+    "Desa": "Ngulanan",
+    "Kode Wilayah": "35.22.06.2015",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "353",
+    "Desa": "Ngumpakdalem (Ngumpak Dalem)",
+    "Kode Wilayah": "35.22.06.2013",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "354",
+    "Desa": "Ngunut",
+    "Kode Wilayah": "35.22.06.2001",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "355",
+    "Desa": "Sendangrejo",
+    "Kode Wilayah": "35.22.06.2009",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "356",
+    "Desa": "Somodikaran (Sumodikaran)",
+    "Kode Wilayah": "35.22.06.2012",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "357",
+    "Desa": "Sumberagung (Sumber Agung)",
+    "Kode Wilayah": "35.22.06.2011",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "358",
+    "Desa": "Sumberarum (Sumber Arum)",
+    "Kode Wilayah": "35.22.06.2004",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "359",
+    "Desa": "Sumbertlaseh (Sumber Tlaseh)",
+    "Kode Wilayah": "35.22.06.2014",
+    "Kecamatan": "Dander"
+  },
+  {
+    "No.": "360",
+    "Desa": "Bubulan",
+    "Kode Wilayah": "35.22.05.2001",
+    "Kecamatan": "Bubulan"
+  },
+  {
+    "No.": "361",
+    "Desa": "Cancung",
+    "Kode Wilayah": "35.22.05.2002",
+    "Kecamatan": "Bubulan"
+  },
+  {
+    "No.": "362",
+    "Desa": "Clebung",
+    "Kode Wilayah": "35.22.05.2003",
+    "Kecamatan": "Bubulan"
+  },
+  {
+    "No.": "363",
+    "Desa": "Ngorogunung",
+    "Kode Wilayah": "35.22.05.2005",
+    "Kecamatan": "Bubulan"
+  },
+  {
+    "No.": "364",
+    "Desa": "Sumberbendo (Sumber Bendo)",
+    "Kode Wilayah": "35.22.05.2004",
+    "Kecamatan": "Bubulan"
+  },
+  {
+    "No.": "365",
+    "Desa": "Banjarrejo (Banjarejo)",
+    "Kode Wilayah": "35.22.15.1014",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "366",
+    "Desa": "Campurejo",
+    "Kode Wilayah": "35.22.15.2015",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "367",
+    "Desa": "Jetak",
+    "Kode Wilayah": "35.22.15.1001",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "368",
+    "Desa": "Kadipaten",
+    "Kode Wilayah": "35.22.15.1011",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "369",
+    "Desa": "Kalirejo",
+    "Kode Wilayah": "35.22.15.2017",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "370",
+    "Desa": "Karang Pacar",
+    "Kode Wilayah": "35.22.15.1013",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "371",
+    "Desa": "Kauman",
+    "Kode Wilayah": "35.22.15.2008",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "372",
+    "Desa": "Kepatihan",
+    "Kode Wilayah": "35.22.15.1005",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "373",
+    "Desa": "Klangon",
+    "Kode Wilayah": "35.22.15.1007",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "374",
+    "Desa": "Ledok Kulon",
+    "Kode Wilayah": "35.22.15.1009",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "375",
+    "Desa": "Ledok Wetan",
+    "Kode Wilayah": "35.22.15.1010",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "376",
+    "Desa": "Mojokampung",
+    "Kode Wilayah": "35.22.15.1004",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "377",
+    "Desa": "Mulyoagung",
+    "Kode Wilayah": "35.22.15.2016",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "378",
+    "Desa": "Ngrowo",
+    "Kode Wilayah": "35.22.15.1012",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "379",
+    "Desa": "Pacul",
+    "Kode Wilayah": "35.22.15.2002",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "380",
+    "Desa": "Semanding",
+    "Kode Wilayah": "35.22.15.2018",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "381",
+    "Desa": "Sukorejo",
+    "Kode Wilayah": "35.22.15.2003",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "382",
+    "Desa": "Sumbang",
+    "Kode Wilayah": "35.22.15.1006",
+    "Kecamatan": "Bojonegoro"
+  },
+  {
+    "No.": "383",
+    "Desa": "Banjaran",
+    "Kode Wilayah": "35.22.10.2020",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "384",
+    "Desa": "Banjaranyar",
+    "Kode Wilayah": "35.22.10.2002",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "385",
+    "Desa": "Baureno",
+    "Kode Wilayah": "35.22.10.2006",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "386",
+    "Desa": "Blongsong",
+    "Kode Wilayah": "35.22.10.2005",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "387",
+    "Desa": "Bumiayu",
+    "Kode Wilayah": "35.22.10.2016",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "388",
+    "Desa": "Drajat",
+    "Kode Wilayah": "35.22.10.2001",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "389",
+    "Desa": "Gajah",
+    "Kode Wilayah": "35.22.10.2012",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "390",
+    "Desa": "Gunungsari",
+    "Kode Wilayah": "35.22.10.2015",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "391",
+    "Desa": "Kalisari",
+    "Kode Wilayah": "35.22.10.2013",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "392",
+    "Desa": "Karangdayu",
+    "Kode Wilayah": "35.22.10.2018",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "393",
+    "Desa": "Kauman",
+    "Kode Wilayah": "35.22.10.2017",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "394",
+    "Desa": "Kedungrejo (Kadungrejo)",
+    "Kode Wilayah": "35.22.10.2024",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "395",
+    "Desa": "Lebaksari",
+    "Kode Wilayah": "35.22.10.2025",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "396",
+    "Desa": "Ngemplak",
+    "Kode Wilayah": "35.22.10.2003",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "397",
+    "Desa": "Pasinan",
+    "Kode Wilayah": "35.22.10.2019",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "398",
+    "Desa": "Pomahan",
+    "Kode Wilayah": "35.22.10.2022",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "399",
+    "Desa": "Pucungarum (Pucangarum)",
+    "Kode Wilayah": "35.22.10.2023",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "400",
+    "Desa": "Selorejo",
+    "Kode Wilayah": "35.22.10.2009",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "401",
+    "Desa": "Sembunglor",
+    "Kode Wilayah": "35.22.10.2021",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "402",
+    "Desa": "Sraturejo",
+    "Kode Wilayah": "35.22.10.2004",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "403",
+    "Desa": "Sumuragung",
+    "Kode Wilayah": "35.22.10.2011",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "404",
+    "Desa": "Tanggungan",
+    "Kode Wilayah": "35.22.10.2014",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "405",
+    "Desa": "Tlogoagung",
+    "Kode Wilayah": "35.22.10.2010",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "406",
+    "Desa": "Trojalu",
+    "Kode Wilayah": "35.22.10.2007",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "407",
+    "Desa": "Tulungagung",
+    "Kode Wilayah": "35.22.10.2008",
+    "Kecamatan": "Baureno"
+  },
+  {
+    "No.": "408",
+    "Desa": "Balenrejo",
+    "Kode Wilayah": "35.22.13.2013",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "409",
+    "Desa": "Bulaklo",
+    "Kode Wilayah": "35.22.13.2006",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "410",
+    "Desa": "Bulu",
+    "Kode Wilayah": "35.22.13.2007",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "411",
+    "Desa": "Kabunan",
+    "Kode Wilayah": "35.22.13.2010",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "412",
+    "Desa": "Kedungbendo (Kedungbondo)",
+    "Kode Wilayah": "35.22.13.2020",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "413",
+    "Desa": "Kedungdowo",
+    "Kode Wilayah": "35.22.13.2019",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "414",
+    "Desa": "Kemamang",
+    "Kode Wilayah": "35.22.13.2008",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "415",
+    "Desa": "Kenep",
+    "Kode Wilayah": "35.22.13.2003",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "416",
+    "Desa": "Lengkong",
+    "Kode Wilayah": "35.22.13.2015",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "417",
+    "Desa": "Margomulyo",
+    "Kode Wilayah": "35.22.13.2014",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "418",
+    "Desa": "Mayangkawis",
+    "Kode Wilayah": "35.22.13.2002",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "419",
+    "Desa": "Mulyoagung",
+    "Kode Wilayah": "35.22.13.2016",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "420",
+    "Desa": "Mulyorejo",
+    "Kode Wilayah": "35.22.13.2023",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "421",
+    "Desa": "Ngadiluhur",
+    "Kode Wilayah": "35.22.13.2009",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "422",
+    "Desa": "Penganten",
+    "Kode Wilayah": "35.22.13.2005",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "423",
+    "Desa": "Pilanggede (Pilang Gede)",
+    "Kode Wilayah": "35.22.13.2021",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "424",
+    "Desa": "Pohbogo (Poh Bogo)",
+    "Kode Wilayah": "35.22.13.2004",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "425",
+    "Desa": "Prambatan",
+    "Kode Wilayah": "35.22.13.2018",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "426",
+    "Desa": "Sarirejo",
+    "Kode Wilayah": "35.22.13.2022",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "427",
+    "Desa": "Sekaran",
+    "Kode Wilayah": "35.22.13.2017",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "428",
+    "Desa": "Sidobandung",
+    "Kode Wilayah": "35.22.13.2001",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "429",
+    "Desa": "Sobontoro",
+    "Kode Wilayah": "35.22.13.2011",
+    "Kecamatan": "Balen"
+  },
+  {
+    "No.": "430",
+    "Desa": "Suwaloh",
+    "Kode Wilayah": "35.22.13.2012",
+    "Kecamatan": "Balen"
+  }
+]

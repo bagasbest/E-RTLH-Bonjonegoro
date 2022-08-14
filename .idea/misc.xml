@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/drawable/bg_rounded_bottom2.xml" value="0.1575" />
         <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/drawable/bg_rounded_button.xml" value="0.1635" />
         <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/drawable/ic_baseline_alternate_email_24.xml" value="0.1635" />
         <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1635" />
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/activity_history.xml" value="0.2" />
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/activity_login.xml" value="0.22780797101449277" />
         <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/activity_register_user.xml" value="0.2" />
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/activity_survey.xml" value="0.2" />
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/item_survey.xml" value="0.2" />
+        <entry key="..\:/temp/ERTLHBojonegoro/app/src/main/res/layout/item_survey2.xml" value="0.264" />
       </map>
     </option>
   </component>
