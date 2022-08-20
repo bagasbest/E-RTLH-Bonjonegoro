@@ -102,16 +102,28 @@
 
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:id="@+id/searchable_spinner"
+        android:id="@+id/searchable_spinner_kecamatan"
         android:layout_width="match_parent"
-        android:layout_marginTop="20sp"
-        android:layout_marginStart="16sp"
-        android:layout_marginEnd="16sp"
         android:layout_height="wrap_content"
-        app:hintText="Pilih Desa/Kelurahan"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="16sp"
+        app:hintText="Pilih Kecamatan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/searchable_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="16sp"
+        app:hintText="Pilih Desa/Kelurahan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchable_spinner_kecamatan" />
 
 
     <ProgressBar

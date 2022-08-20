@@ -1,6 +1,7 @@
 package com.sounekatlogo.ertlhbojonegoro.history_data
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -48,7 +49,9 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
                 }
 
                 cv.setOnClickListener {
-
+                    val intent = Intent(itemView.context, HistoryDetailActivity::class.java)
+                    intent.putExtra(HistoryDetailActivity.EXTRA_DATA, model)
+                    itemView.context.startActivity(intent)
                 }
 
             }

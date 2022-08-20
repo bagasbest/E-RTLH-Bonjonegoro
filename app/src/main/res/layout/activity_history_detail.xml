@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".survey.SurveyActivity">
+    tools:context=".history_data.HistoryDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,6 +23,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/green" />
 
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_delete_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView8"
@@ -30,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:fontFamily="@font/poppins"
-            android:text="Survey Baru"
+            android:text="Detail Riwayat Survey"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -230,6 +239,7 @@
 
 
             <RadioGroup
+                android:id="@+id/a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -269,6 +279,7 @@
 
 
             <RadioGroup
+                android:id="@+id/b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -307,6 +318,7 @@
 
 
             <RadioGroup
+                android:id="@+id/bb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -345,6 +357,7 @@
 
 
             <RadioGroup
+                android:id="@+id/c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -383,6 +396,7 @@
 
 
             <RadioGroup
+                android:id="@+id/d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -422,6 +436,7 @@
 
 
             <RadioGroup
+                android:id="@+id/e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -461,6 +476,7 @@
 
 
             <RadioGroup
+                android:id="@+id/ee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -500,6 +516,7 @@
 
 
             <RadioGroup
+                android:id="@+id/f"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -540,6 +557,7 @@
 
 
             <RadioGroup
+                android:id="@+id/g"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -578,8 +596,6 @@
                     android:id="@+id/koordinat"
                     android:hint="Titik Koordinat (Latitude - Longitude)"
                     android:layout_width="match_parent"
-                    android:enabled="false"
-                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
 
@@ -744,6 +760,7 @@
 
 
             <Button
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -751,7 +768,7 @@
                 android:backgroundTint="@color/green"
                 android:id="@+id/save"
                 android:fontFamily="@font/poppins"
-                android:text="Simpan Survey"
+                android:text="Perbarui Data Survey"
                 android:layout_marginStart="16sp"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/white"

@@ -1,40 +1,29 @@
-package com.sounekatlogo.ertlhbojonegoro.survey
+package com.sounekatlogo.ertlhbojonegoro.history_data
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
-import android.os.Looper
-import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.github.dhaval2404.imagepicker.ImagePicker
-import com.google.android.gms.location.*
+import com.sounekatlogo.ertlhbojonegoro.HomeActivity
+import com.sounekatlogo.ertlhbojonegoro.LoginActivity
 import com.sounekatlogo.ertlhbojonegoro.R
-import com.sounekatlogo.ertlhbojonegoro.databinding.ActivitySurveyBinding
+import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityHistoryDetailBinding
+import com.sounekatlogo.ertlhbojonegoro.survey.SurveyModel
 import com.sounekatlogo.ertlhbojonegoro.utils.DBHelper
-import com.sounekatlogo.ertlhbojonegoro.utils.GPSTracker
 import java.text.SimpleDateFormat
 import java.util.*
 
+class HistoryDetailActivity : AppCompatActivity() {
 
-class SurveyActivity : AppCompatActivity() {
-
-    private var _binding: ActivitySurveyBinding? = null
+    private var _binding: ActivityHistoryDetailBinding? = null
     private val binding get() = _binding!!
-
-    /// variable untuk menampung gambar dari galeri handphone
     private var fondasi = ""
     private var sloof = ""
     private var kolom = ""
@@ -43,10 +32,9 @@ class SurveyActivity : AppCompatActivity() {
     private var dinding = ""
     private var lantai = ""
     private var penutupAtap = ""
-    private var statusPenguasaanLahan = ""
     private var uid = ""
-    private var desa1 = ""
-    private var kecamatan1 = ""
+    private var statusPenguasaanLahan = ""
+    private var model: SurveyModel? = null
 
     /// variable untuk permission ke galeri handphone
     private var ktpp: String = ""
@@ -55,149 +43,229 @@ class SurveyActivity : AppCompatActivity() {
     private val REQUEST_KTP_GALLERY = 1001
     private val REQUEST_SAMPING_GALLERY = 1002
     private val REQUEST_DALAM_RUMAH_GALLERY = 1003
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private val permissionID = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivitySurveyBinding.inflate(layoutInflater)
+        _binding = ActivityHistoryDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        checkDistance()
 
-
-        val prefs =  getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
-        uid = prefs.getString("uid", "").toString()
-        desa1 = prefs.getString("desa", "").toString()
-        kecamatan1 = prefs.getString("kecamatan", "").toString()
-
+        model = intent.getParcelableExtra(EXTRA_DATA)
         binding.apply {
-            desa.setText(desa1)
-            kecamatan.setText(kecamatan1)
+            if (model?.status1 == "Belum Diupload") {
+                save.visibility = View.VISIBLE
+            }
+            nama.setText(model?.nama1)
+            nik.setText(model?.nik1)
+            noKK.setText(model?.noKK1)
+            alamat.setText(model?.alamat1)
+            desa.setText(model?.desa1)
+            kecamatan.setText(model?.kecamatan1)
+            jumlahKK.setText(model?.jumlahKK1)
+            jumlahPenghuni.setText(model?.jumlahKK1)
+            penghasilanKK.setText(model?.penghasilan1)
+            luasRumah.setText(model?.luasRumah1)
+            koordinat.setText(model?.koordinat1)
+            fondasi = model?.pondasi1.toString()
+            sloof = model?.sloof1.toString()
+            kolom = model?.kolom1.toString()
+            ringBalok = model?.ringBalok1.toString()
+            kudaKuda = model?.kudaKuda1.toString()
+            dinding = model?.dinding1.toString()
+            lantai = model?.lantai1.toString()
+            penutupAtap = model?.penutupAtap1.toString()
+            statusPenguasaanLahan = model?.statusPenguasaanLahan1.toString()
+            ktpp = model?.ktp1.toString()
+            samping = model?.samping1.toString()
+            dalamRumah = model?.dalamRumah1.toString()
+
+
+            when (fondasi) {
+                a1.text.toString() -> {
+                    a1.isChecked = true
+                }
+                a2.text.toString() -> {
+                    a2.isChecked = true
+                }
+                else -> {
+                    a3.isChecked = true
+                }
+            }
+
+            when (sloof) {
+                b1.text.toString() -> {
+                    b1.isChecked = true
+                }
+                b2.text.toString() -> {
+                    b2.isChecked = true
+                }
+                else -> {
+                    b1.isChecked = true
+                }
+            }
+
+            when (kolom) {
+                bb1.text.toString() -> {
+                    bb1.isChecked = true
+                }
+                bb2.text.toString() -> {
+                    bb2.isChecked = true
+                }
+                else -> {
+                    bb3.isChecked = true
+                }
+            }
+
+            when (ringBalok) {
+                c1.text.toString() -> {
+                    c1.isChecked = true
+                }
+                c2.text.toString() -> {
+                    c2.isChecked = true
+                }
+                else -> {
+                    c3.isChecked = true
+                }
+            }
+
+            when (kudaKuda) {
+                d1.text.toString() -> {
+                    d1.isChecked = true
+                }
+                d2.text.toString() -> {
+                    d2.isChecked = true
+                }
+                else -> {
+                    d3.isChecked = true
+                }
+            }
+
+
+            when (dinding) {
+                e1.text.toString() -> {
+                    e1.isChecked = true
+                }
+                e2.text.toString() -> {
+                    e2.isChecked = true
+                }
+                else -> {
+                    e3.isChecked = true
+                }
+            }
+
+            when (lantai) {
+                ee1.text.toString() -> {
+                    ee1.isChecked = true
+                }
+                ee2.text.toString() -> {
+                    ee2.isChecked = true
+                }
+                else -> {
+                    ee3.isChecked = true
+                }
+            }
+
+
+            when (penutupAtap) {
+                f1.text.toString() -> {
+                    f1.isChecked = true
+                }
+                f2.text.toString() -> {
+                    f2.isChecked = true
+                }
+                else -> {
+                    f3.isChecked = true
+                }
+            }
+
+            when (statusPenguasaanLahan) {
+                g1.text.toString() -> {
+                    g1.isChecked = true
+                }
+                g2.text.toString() -> {
+                    g2.isChecked = true
+                }
+                else -> {
+                    g3.isChecked = true
+                }
+            }
+
+
+            if (ktpp != "") {
+                Glide.with(this@HistoryDetailActivity)
+                    .load(ktpp)
+                    .into(ktp)
+            }
+
+            if (samping != "") {
+                Glide.with(this@HistoryDetailActivity)
+                    .load(samping)
+                    .into(fotoTampakSamping)
+            }
+
+
+            if (dalamRumah != "") {
+                Glide.with(this@HistoryDetailActivity)
+                    .load(dalamRumah)
+                    .into(fotoDalamRumah)
+            }
 
             backButton.setOnClickListener {
                 onBackPressed()
             }
 
             ktpHint.setOnClickListener {
-                ImagePicker.with(this@SurveyActivity)
+                ImagePicker.with(this@HistoryDetailActivity)
                     .cameraOnly()
                     .compress(1024)
                     .start(REQUEST_KTP_GALLERY)
             }
 
             fotoTampakSampingHint.setOnClickListener {
-                ImagePicker.with(this@SurveyActivity)
+                ImagePicker.with(this@HistoryDetailActivity)
                     .cameraOnly()
                     .compress(1024)
                     .start(REQUEST_SAMPING_GALLERY)
             }
 
             fotoDalamRumahHint.setOnClickListener {
-                ImagePicker.with(this@SurveyActivity)
+                ImagePicker.with(this@HistoryDetailActivity)
                     .cameraOnly()
                     .compress(1024)
                     .start(REQUEST_DALAM_RUMAH_GALLERY)
             }
 
             save.setOnClickListener {
-                saveFormSurvey()
+                updateData()
+            }
+
+            delete.setOnClickListener {
+                deleteConformation()
             }
         }
 
-
     }
 
-    @SuppressLint("SetTextI18n", "MissingPermission")
-    private fun checkDistance() {
-        if (checkPermissions()) {
-            if (isLocationEnabled()) {
-                fusedLocationProviderClient.lastLocation.addOnCompleteListener(this) { task ->
-                    val location: Location? = task.result
-                    if (location == null) {
-                        requestNewLocationData()
-                    } else {
-                        binding.koordinat.setText("${location.latitude} - ${location.longitude}")
+    private fun deleteConformation() {
+        AlertDialog.Builder(this)
+            .setTitle("Konfirmasi Menghapus Survey")
+            .setMessage("Apakah anda yakin ingin menghapus survey ini ?")
+            .setIcon(R.drawable.ic_baseline_warning_24)
+            .setPositiveButton("YA") { dialogInterface, _ ->
+                dialogInterface.dismiss()
+                val db = DBHelper(this@HistoryDetailActivity, null)
 
-                    }
-                }
-            } else {
-                Toast.makeText(this, "Turn on location", Toast.LENGTH_LONG).show()
-                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                db.delete(model?.id1)
+                Toast.makeText(this, "Berhasil menghapus survey", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
+                finish()
             }
-        } else {
-            requestPermissions()
-        }
+            .show()
     }
 
-    @SuppressLint("MissingPermission")
-    private fun requestNewLocationData() {
-        val mLocationRequest = LocationRequest()
-        mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        mLocationRequest.interval = 0
-        mLocationRequest.fastestInterval = 0
-        mLocationRequest.numUpdates = 1
-
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        Looper.myLooper()?.let {
-            fusedLocationProviderClient.requestLocationUpdates(
-                mLocationRequest, mLocationCallback,
-                it
-            )
-        }
-    }
-
-    private val mLocationCallback = object : LocationCallback() {
-        override fun onLocationResult(locationResult: LocationResult) {
-            val mLastLocation: Location? = locationResult.lastLocation
-
-            binding.koordinat.setText("${mLastLocation?.latitude} - ${mLastLocation?.longitude}")
-
-        }
-    }
-
-    private fun isLocationEnabled(): Boolean {
-        val locationManager: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-            LocationManager.NETWORK_PROVIDER
-        )
-    }
-
-    private fun checkPermissions(): Boolean {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            return true
-        }
-        return false
-    }
-
-    private fun requestPermissions() {
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
-            permissionID
-        )
-    }
-
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == permissionID) {
-            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                checkDistance()
-            }
-        }
-    }
-
-    private fun saveFormSurvey() {
+    private fun updateData() {
         binding.apply {
             val nama = nama.text.toString().trim()
             val nik = nik.text.toString().trim()
@@ -215,10 +283,11 @@ class SurveyActivity : AppCompatActivity() {
             val df = SimpleDateFormat("dd MMMM yyyy, hh:mm", Locale.getDefault())
             val formattedDate = df.format(c.time)
 
-            val db = DBHelper(this@SurveyActivity, null)
+            val db = DBHelper(this@HistoryDetailActivity, null)
 
-            db.addSurvey(
-                uid,
+            db.editSurvey(
+                model!!.id1,
+                model!!.uid1,
                 nama,
                 nik,
                 noKK,
@@ -247,10 +316,8 @@ class SurveyActivity : AppCompatActivity() {
             )
 
             showSuccessDialog()
-
         }
     }
-
 
     /// ini adalah program untuk menambahkan gambar kedalalam halaman ini
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -281,7 +348,6 @@ class SurveyActivity : AppCompatActivity() {
             }
         }
     }
-
 
     /// fungsi untuk mengupload foto kedalam cloud storage
     private fun uploadImageToDatabase(data: Uri?, dir: String) {
@@ -333,11 +399,6 @@ class SurveyActivity : AppCompatActivity() {
 //            }
     }
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 
     fun fondasi(view: View) {
         if (view is RadioButton) {
@@ -546,11 +607,10 @@ class SurveyActivity : AppCompatActivity() {
         }
     }
 
-
     private fun showSuccessDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Berhasil Menyimpan Survey")
-            .setMessage("Anda dapat mengupload survey dengan menekan tombol Sync Data di halaman utama.")
+            .setTitle("Berhasil Memperbarui Data Survey")
+            .setMessage("Anda sudah memperbarui survey")
             .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
             .setPositiveButton("OKE") { dialogInterface, _ ->
                 dialogInterface.dismiss()
@@ -569,9 +629,6 @@ class SurveyActivity : AppCompatActivity() {
                     ktpp = ""
                     samping = ""
                     dalamRumah = ""
-                    ktpp = ""
-                    samping = ""
-                    dalamRumah = ""
                     fondasi = ""
                     sloof = ""
                     kolom = ""
@@ -582,8 +639,23 @@ class SurveyActivity : AppCompatActivity() {
                     penutupAtap = ""
                     uid = ""
                     statusPenguasaanLahan = ""
+
                 }
+
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
             }
             .show()
+    }
+
+    companion object {
+        const val EXTRA_DATA = "data"
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

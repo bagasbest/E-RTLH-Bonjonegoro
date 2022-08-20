@@ -1,6 +1,5 @@
 package com.sounekatlogo.ertlhbojonegoro.register
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -31,7 +30,7 @@ class RegisterUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getDesaFromAPI()
-        showDropdownWilayah()
+        showDropdownWilayahKecamatan()
 
         binding.backButton.setOnClickListener {
             onBackPressed()
@@ -43,15 +42,54 @@ class RegisterUserActivity : AppCompatActivity() {
 
     }
 
+    private fun showDropdownWilayahKecamatan() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            val kecamatan = ArrayList<String>()
+            desaList.forEach {
+                kecamatan.add(it.desa.toString())
+            }
+
+
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_expandable_list_item_1,
+                kecamatan
+            )
+            binding.searchableSpinner.adapter = adapter
+            binding.searchableSpinner.onItemSelectedListener =
+                (object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        p0: AdapterView<*>?,
+                        p1: View?,
+                        p2: Int,
+                        p3: Long
+                    ) {
+                        val customer = desaList[p2]
+                        val kecamatan = customer.kecamatan.toString()
+
+                        showDropdownWilayah(kecamatan)
+                    }
+
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+                    }
+                })
+
+
+
+        }, 1000)
+    }
+
     private fun getDesaFromAPI() {
         Desa.jsonToList(this, desaList)
     }
 
-    private fun showDropdownWilayah() {
+    private fun showDropdownWilayah(kecamatan: String) {
         Handler(Looper.getMainLooper()).postDelayed({
             val desaName = ArrayList<String>()
             desaList.forEach {
-                desaName.add(it.desa.toString())
+                if(it.kecamatan == kecamatan) {
+                    desaName.add(it.desa.toString())
+                }
             }
 
 
@@ -72,7 +110,7 @@ class RegisterUserActivity : AppCompatActivity() {
                         val customer = desaList[p2]
                         desa = customer.desa.toString()
                         kodeWilayah = customer.code.toString()
-                        kecamatan = customer.kecamatan.toString()
+                        this@RegisterUserActivity.kecamatan = customer.kecamatan.toString()
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {

@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityLoginBinding
+import com.sounekatlogo.ertlhbojonegoro.utils.GPSTracker
 
 class LoginActivity : AppCompatActivity() {
 

@@ -145,29 +145,79 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
     }
 
+    fun editSurvey(
+        id1: Int,
+        uid1: String,
+        nama1: String,
+        nik1: String,
+        noKK1: String,
+        alamat1: String,
+        desa1: String,
+        kecamatan1: String,
+        jumlahKK1: String,
+        jumlahPenghuni1: String,
+        penghasilan1: String,
+        luasRumah1: String,
+        pondasi1: String,
+        sloof1: String,
+        kolom1: String,
+        ringBalok1: String,
+        kudaKuda1: String,
+        dinding1: String,
+        lantai1: String,
+        penutupAtap1: String,
+        statusPenguasaanLahan1: String,
+        koordinat1: String,
+        ktp1: String,
+        samping1: String,
+        dalamRumah1: String,
+        status1: String,
+        date1: String,
+    ) {
+        // calling a method to get writable database.
+        val db = this.writableDatabase
 
-    fun getDetailSurvey(id: Int): Cursor? {
+        // below we are creating
+        // a content values variable
+        val values = ContentValues()
 
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
-        val db = this.readableDatabase
+        // we are inserting our values
+        // in the form of key-value pair
+        values.put(uid, uid1)
+        values.put(nama, nama1)
+        values.put(nik, nik1)
+        values.put(noKK, noKK1)
+        values.put(alamat, alamat1)
+        values.put(desa, desa1)
+        values.put(kecamatan, kecamatan1)
+        values.put(jumlahKK, jumlahKK1)
+        values.put(jumlahPenghuni, jumlahPenghuni1)
+        values.put(penghasilanKK, penghasilan1)
+        values.put(luasRumah, luasRumah1)
+        values.put(fondasi, pondasi1)
+        values.put(sloof, sloof1)
+        values.put(kolom, kolom1)
+        values.put(ringBalok, ringBalok1)
+        values.put(kudaKuda, kudaKuda1)
+        values.put(dinding, dinding1)
+        values.put(lantai, lantai1)
+        values.put(penutupAtap, penutupAtap1)
+        values.put(statusPenguasaanLahan, statusPenguasaanLahan1)
+        values.put(koordinat, koordinat1)
+        values.put(ktp, ktp1)
+        values.put(samping, samping1)
+        values.put(dalamRumah, dalamRumah1)
+        values.put(status, status1)
+        values.put(date, date1)
 
-        // below code returns a cursor to
-        // read data from the database
-        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $ID_COL = $id", null)
+        db.update(TABLE_NAME, values, "id=?", arrayOf(id1.toString()))
+        db.close()
     }
 
-    fun updateSurvey(id: Int): Cursor? {
-
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
-        val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
-        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $ID_COL = $id", null)
+    fun delete(id1: Int?) {
+        val db = this.writableDatabase
+        db.delete(TABLE_NAME, "id=?", arrayOf(id1.toString()))
+        db.close()
     }
 
     companion object {

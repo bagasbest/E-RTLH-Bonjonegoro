@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityHistoryBinding
 import com.sounekatlogo.ertlhbojonegoro.survey.SurveyAdapter
@@ -40,6 +41,8 @@ class HistoryActivity : AppCompatActivity() {
         val db = DBHelper(this, null)
         val cursor = db.getAllSurvey(myUid)
         cursor!!.moveToFirst()
+
+        val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
         val uid = cursor.getString(cursor.getColumnIndex(DBHelper.uid))
         val nama = cursor.getString(cursor.getColumnIndex(DBHelper.nama))
         val nik = cursor.getString(cursor.getColumnIndex(DBHelper.nik))
@@ -69,6 +72,7 @@ class HistoryActivity : AppCompatActivity() {
 
         surveyList.add(
             SurveyModel(
+                id1 = id.toInt(),
                 uid1 = uid,
                 nama1 = nama,
                 nik1 = nik,
@@ -100,6 +104,7 @@ class HistoryActivity : AppCompatActivity() {
 
 
         while (cursor.moveToNext()) {
+            val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
             val uid = cursor.getString(cursor.getColumnIndex(DBHelper.uid))
             val nama = cursor.getString(cursor.getColumnIndex(DBHelper.nama))
             val nik = cursor.getString(cursor.getColumnIndex(DBHelper.nik))
@@ -129,6 +134,7 @@ class HistoryActivity : AppCompatActivity() {
 
             surveyList.add(
                 SurveyModel(
+                    id1 = id.toInt(),
                     uid1 = uid,
                     nama1 = nama,
                     nik1 = nik,
@@ -158,6 +164,7 @@ class HistoryActivity : AppCompatActivity() {
                 )
             )
         }
+
 
         adapter?.setData(surveyList)
         cursor.close()

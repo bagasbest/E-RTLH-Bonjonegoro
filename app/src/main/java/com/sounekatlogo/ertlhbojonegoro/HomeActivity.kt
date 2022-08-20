@@ -59,6 +59,7 @@ class HomeActivity : AppCompatActivity() {
         val db = DBHelper(this, null)
         val cursor = db.getAllSurvey(uid)
         cursor!!.moveToFirst()
+        val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
         val uid = cursor.getString(cursor.getColumnIndex(DBHelper.uid))
         val nama = cursor.getString(cursor.getColumnIndex(DBHelper.nama))
         val nik = cursor.getString(cursor.getColumnIndex(DBHelper.nik))
@@ -88,6 +89,7 @@ class HomeActivity : AppCompatActivity() {
 
         surveyList.add(
             SurveyModel(
+                id1 = id.toInt(),
                 uid1 = uid,
                 nama1 = nama,
                 nik1 = nik,
@@ -119,6 +121,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         while (cursor.moveToNext()) {
+            val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
             val uid = cursor.getString(cursor.getColumnIndex(DBHelper.uid))
             val nama = cursor.getString(cursor.getColumnIndex(DBHelper.nama))
             val nik = cursor.getString(cursor.getColumnIndex(DBHelper.nik))
@@ -148,6 +151,7 @@ class HomeActivity : AppCompatActivity() {
 
             surveyList.add(
                 SurveyModel(
+                    id1 = id.toInt(),
                     uid1 = uid,
                     nama1 = nama,
                     nik1 = nik,
@@ -179,7 +183,6 @@ class HomeActivity : AppCompatActivity() {
         }
 
         adapter?.setData(surveyList)
-
         var belumDiupload = 0
         surveyList.forEach {
             if(it.status1 == "Belum Diupload") {
@@ -187,7 +190,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         binding.textView4.text = belumDiupload.toString()
-
         cursor.close()
     }
 

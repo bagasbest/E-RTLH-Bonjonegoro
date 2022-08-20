@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SurveyModel(
+    var id1: Int,
     var uid1: String,
     var nama1: String,
     var nik1: String,
