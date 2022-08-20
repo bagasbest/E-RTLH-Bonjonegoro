@@ -53,6 +53,9 @@ class HistoryDetailActivity : AppCompatActivity() {
         binding.apply {
             if (model?.status1 == "Belum Diupload") {
                 save.visibility = View.VISIBLE
+                ktpHint.visibility = View.VISIBLE
+                fotoTampakSampingHint.visibility = View.VISIBLE
+                fotoDalamRumahHint.visibility = View.VISIBLE
             }
             nama.setText(model?.nama1)
             nik.setText(model?.nik1)
@@ -240,6 +243,30 @@ class HistoryDetailActivity : AppCompatActivity() {
 
             delete.setOnClickListener {
                 deleteConformation()
+            }
+
+            ktp.setOnClickListener {
+                val intent = Intent(this@HistoryDetailActivity, PhotoActivity::class.java)
+                intent.putExtra(PhotoActivity.option, "KTP")
+                intent.putExtra(PhotoActivity.name, model?.nama1)
+                intent.putExtra(PhotoActivity.image, model?.ktp1)
+                startActivity(intent)
+            }
+
+            fotoTampakSamping.setOnClickListener {
+                val intent = Intent(this@HistoryDetailActivity, PhotoActivity::class.java)
+                intent.putExtra(PhotoActivity.option, "Foto Tampak Samping")
+                intent.putExtra(PhotoActivity.name, model?.nama1)
+                intent.putExtra(PhotoActivity.image, model?.ktp1)
+                startActivity(intent)
+            }
+
+            fotoDalamRumah.setOnClickListener {
+                val intent = Intent(this@HistoryDetailActivity, PhotoActivity::class.java)
+                intent.putExtra(PhotoActivity.option, "Foto Dalam Rumah")
+                intent.putExtra(PhotoActivity.name, model?.nama1)
+                intent.putExtra(PhotoActivity.image, model?.ktp1)
+                startActivity(intent)
             }
         }
 

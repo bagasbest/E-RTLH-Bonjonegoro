@@ -219,6 +219,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Riwayat Survey"
                     android:textAlignment="center"
+                    android:id="@+id/txt"
                     android:textSize="12sp"
                     android:fontFamily="@font/poppins"
                     android:textColor="@color/black"
@@ -332,6 +333,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
             tools:listitem="@layout/item_survey" />
+
+
+        <TextView
+            android:id="@+id/noData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Tidak Ada Riwayat Survey"
+            android:textColor="@color/black"
+            android:layout_marginTop="100dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

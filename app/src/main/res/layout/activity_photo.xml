@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".history_data.HistoryActivity">
-
+    tools:context=".history_data.PhotoActivity">
 
     <ImageView
         android:id="@+id/backButton"
@@ -18,17 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/green" />
 
-    <ImageView
-        android:id="@+id/optionMenu"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_baseline_menu_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/green" />
-
 
     <TextView
         android:id="@+id/textView8"
@@ -36,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16sp"
         android:fontFamily="@font/poppins"
-        android:text="Riwayat Survey"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -44,32 +31,14 @@
         app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="@+id/backButton" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSurvery"
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton"
-        tools:listitem="@layout/item_survey2" />
-
-
-    <TextView
-        android:id="@+id/noData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins"
-        android:text="Tidak Ada Riwayat Survey"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:visibility="gone"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

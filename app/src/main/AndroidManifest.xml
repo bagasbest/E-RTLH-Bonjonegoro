@@ -19,10 +19,16 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.ERTLHBojonegoro"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".history_data.PhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".history_data.HistoryServerActivity"
+            android:exported="false" />
         <activity
             android:name=".history_data.HistoryDetailActivity"
             android:exported="false" />
