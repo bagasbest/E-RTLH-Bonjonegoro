@@ -220,6 +220,18 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         db.close()
     }
 
+    fun editStatusSurvey(id1: Int) {
+        val db = this.writableDatabase
+
+        // below we are creating
+        // a content values variable
+        val values = ContentValues()
+        values.put(status, "Sudah Diupload")
+
+        db.update(TABLE_NAME, values, "id=?", arrayOf(id1.toString()))
+        db.close()
+    }
+
     companion object {
         // here we have defined variables for our database
 

@@ -20,8 +20,7 @@ class RegisterUserActivity : AppCompatActivity() {
     private var _binding: ActivityRegisterUserBinding? = null
     private val binding get() = _binding!!
     private var desa = ""
-    private var kodeWilayah = ""
-    private var kecamatan = ""
+    private var kecamatans = ""
     private var desaList = ArrayList<DesaModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,17 +45,18 @@ class RegisterUserActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val kecamatan = ArrayList<String>()
             desaList.forEach {
-                kecamatan.add(it.desa.toString())
+                kecamatan.add(it.kecamatan.toString())
             }
 
+            val distinct = kecamatan.toSet().toList().reversed()
 
             val adapter = ArrayAdapter(
                 this,
                 android.R.layout.simple_expandable_list_item_1,
-                kecamatan
+                distinct
             )
-            binding.searchableSpinner.adapter = adapter
-            binding.searchableSpinner.onItemSelectedListener =
+            binding.searchableSpinnerKecamatan.adapter = adapter
+            binding.searchableSpinnerKecamatan.onItemSelectedListener =
                 (object : AdapterView.OnItemSelectedListener {
                     override fun onItemSelected(
                         p0: AdapterView<*>?,
@@ -64,16 +64,13 @@ class RegisterUserActivity : AppCompatActivity() {
                         p2: Int,
                         p3: Long
                     ) {
-                        val customer = desaList[p2]
-                        val kecamatan = customer.kecamatan.toString()
-
-                        showDropdownWilayah(kecamatan)
+                        val customer = distinct[p2]
+                        showDropdownWilayah(customer)
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {
                     }
                 })
-
 
 
         }, 1000)
@@ -84,42 +81,37 @@ class RegisterUserActivity : AppCompatActivity() {
     }
 
     private fun showDropdownWilayah(kecamatan: String) {
-        Handler(Looper.getMainLooper()).postDelayed({
-            val desaName = ArrayList<String>()
-            desaList.forEach {
-                if(it.kecamatan == kecamatan) {
-                    desaName.add(it.desa.toString())
-                }
+        val desaName = ArrayList<String>()
+        desaList.forEach {
+            if (it.kecamatan == kecamatan) {
+                desaName.add(it.desa.toString())
             }
+        }
+
+        desaName.reversed()
 
 
-            val adapter = ArrayAdapter(
-               this,
-                android.R.layout.simple_expandable_list_item_1,
-                desaName
-            )
-            binding.searchableSpinner.adapter = adapter
-            binding.searchableSpinner.onItemSelectedListener =
-                (object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(
-                        p0: AdapterView<*>?,
-                        p1: View?,
-                        p2: Int,
-                        p3: Long
-                    ) {
-                        val customer = desaList[p2]
-                        desa = customer.desa.toString()
-                        kodeWilayah = customer.code.toString()
-                        this@RegisterUserActivity.kecamatan = customer.kecamatan.toString()
-                    }
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_expandable_list_item_1,
+            desaName
+        )
+        binding.searchableSpinner.adapter = adapter
+        binding.searchableSpinner.onItemSelectedListener =
+            (object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    p0: AdapterView<*>?,
+                    p1: View?,
+                    p2: Int,
+                    p3: Long
+                ) {
+                    desa = binding.searchableSpinner.selectedItem.toString()
+                    kecamatans = binding.searchableSpinnerKecamatan.selectedItem.toString()
+                }
 
-                    override fun onNothingSelected(p0: AdapterView<*>?) {
-                    }
-                })
-
-
-
-        }, 1000)
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
+            })
     }
 
     private fun register() {
@@ -174,8 +166,7 @@ class RegisterUserActivity : AppCompatActivity() {
             "email" to email,
             "password" to password,
             "desa" to desa,
-            "kecamatan" to kecamatan,
-            "kodeWilayah" to kodeWilayah
+            "kecamatan" to kecamatans,
         )
 
         FirebaseFirestore

@@ -1,15 +1,22 @@
 package com.sounekatlogo.ertlhbojonegoro
 
 import android.annotation.SuppressLint
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityHomeBinding
 import com.sounekatlogo.ertlhbojonegoro.history_data.HistoryActivity
 import com.sounekatlogo.ertlhbojonegoro.register.RegisterUserActivity
@@ -18,6 +25,10 @@ import com.sounekatlogo.ertlhbojonegoro.survey.SurveyAdapter
 import com.sounekatlogo.ertlhbojonegoro.survey.SurveyModel
 import com.sounekatlogo.ertlhbojonegoro.utils.Common
 import com.sounekatlogo.ertlhbojonegoro.utils.DBHelper
+import java.io.IOException
+import java.net.HttpURLConnection
+import java.net.URL
+
 
 class HomeActivity : AppCompatActivity() {
     private var _binding : ActivityHomeBinding? = null
@@ -50,8 +61,150 @@ class HomeActivity : AppCompatActivity() {
             historyData.setOnClickListener {
                 startActivity(Intent(this@HomeActivity, HistoryActivity::class.java))
             }
+            syncData.setOnClickListener {
+                if(binding.textView4.text.toString().toInt() > 0) {
+                    confirmSyncData()
+                } else {
+                    Toast.makeText(this@HomeActivity, "Tidak ada data yang perlu diupload", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
+
+    private fun confirmSyncData() {
+        if(isOnline(this)) {
+
+            val mProgressDialog = ProgressDialog(this)
+            mProgressDialog.setMessage("Mohon tunggu hingga proses selesai...")
+            mProgressDialog.setCanceledOnTouchOutside(false)
+            mProgressDialog.show()
+
+            surveyList.forEach {
+                if(it.status1 == "Belum Diupload") {
+                    var ktp = ""
+                    var samping = ""
+                    var dalam = ""
+
+                    val options = arrayOf("ktp", "tampak_samping_rumah", "tampak_dalam_rumah")
+                    val images = arrayOf(it.ktp1, it.samping1, it.dalamRumah1)
+                    for(i in 0 until 3) {
+                        val imageFileName = "${options[i]}/image_" + System.currentTimeMillis() + ".png"
+                        /// proses upload gambar ke databsae
+                        val mStorageRef = FirebaseStorage.getInstance().reference
+                        mStorageRef.child(imageFileName).putFile(Uri.parse(images[i]))
+                            .addOnSuccessListener { _ ->
+                                mStorageRef.child(imageFileName).downloadUrl
+                                    .addOnSuccessListener { uri: Uri ->
+                                        when (i) {
+                                            0 -> {
+                                                ktp = uri.toString()
+                                            }
+                                            1 -> {
+                                                samping = uri.toString()
+                                            }
+                                            else -> {
+                                                dalam = uri.toString()
+
+                                                val data = mapOf(
+                                                    "id" to it.id1,
+                                                    "uid" to it.uid1,
+                                                    "nama" to it.nama1,
+                                                    "nik" to it.nik1,
+                                                    "noKK" to it.noKK1,
+                                                    "alamat" to it.alamat1,
+                                                    "desa" to it.desa1,
+                                                    "kecamatan" to it.kecamatan1,
+                                                    "jumlahKK" to it.jumlahKK1,
+                                                    "jumlahPenghuni" to it.jumlahPenghuni1,
+                                                    "penghasilanKK" to it.penghasilan1,
+                                                    "luasRumah" to it.luasRumah1,
+                                                    "fondasi" to it.pondasi1,
+                                                    "sloof" to it.sloof1,
+                                                    "kolom" to it.kolom1,
+                                                    "ringBalok" to it.ringBalok1,
+                                                    "kudaKuda" to it.kudaKuda1,
+                                                    "dinding" to it.dinding1,
+                                                    "lantai" to it.lantai1,
+                                                    "penutupAtap" to it.penutupAtap1,
+                                                    "statusPenguasaanLahan" to it.statusPenguasaanLahan1,
+                                                    "koordinat" to it.koordinat1,
+                                                    "ktp" to ktp,
+                                                    "samping" to dalam,
+                                                    "dalamRumah" to samping,
+                                                    "status" to "Sudah Diupload",
+                                                    "date" to it.date1)
+
+                                                FirebaseFirestore
+                                                    .getInstance()
+                                                    .collection("survey")
+                                                    .document(it.id1.toString())
+                                                    .set(data)
+                                                    .addOnCompleteListener { response ->
+                                                        if(response.isSuccessful) {
+
+                                                            val db = DBHelper(this@HomeActivity, null)
+
+                                                            surveyList.forEach { surveyData ->
+                                                                db.editStatusSurvey(surveyData.id1)
+                                                            }
+
+                                                            Log.e("Dasada", "sasasa")
+
+                                                            showSuccessDialog()
+                                                            mProgressDialog.dismiss()
+                                                        }
+                                                    }
+
+                                            }
+                                        }
+                                    }
+                            }
+                    }
+                }
+            }
+
+
+        } else {
+            Toast.makeText(this, "Pastikan anda menyalakan internet", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    private fun showSuccessDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Berhasil Sinkonisasi Data")
+            .setMessage("Anda berhasil mengupload data survey ke server, selanjutnya admin dapat memeriksa data anda")
+            .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
+            .setPositiveButton("OKE") { dialogInterface, _ ->
+                dialogInterface.dismiss()
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+            }
+            .show()
+    }
+
+    private fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities =
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        if (capabilities != null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                return true
+            }
+        }
+        return false
+    }
+
 
     @SuppressLint("Range")
     private fun getData() {
@@ -184,12 +337,16 @@ class HomeActivity : AppCompatActivity() {
 
         adapter?.setData(surveyList)
         var belumDiupload = 0
+        var sudahDiupload = 0
         surveyList.forEach {
             if(it.status1 == "Belum Diupload") {
                 belumDiupload++
+            } else {
+                sudahDiupload++
             }
         }
         binding.textView4.text = belumDiupload.toString()
+        binding.textView3.text = sudahDiupload.toString()
         cursor.close()
     }
 

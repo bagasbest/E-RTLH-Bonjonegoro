@@ -1,6 +1,8 @@
 package com.sounekatlogo.ertlhbojonegoro.survey
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -29,11 +31,13 @@ class SurveyAdapter : RecyclerView.Adapter<SurveyAdapter.ViewHolder>() {
                 nik.text = "NIK: ${model.nik1}"
                 status.text = model.status1
                 when (model.status1) {
-                    "Belum Dipuload" -> {
-                       status.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_red_dark))
+                    "Belum Diupload" -> {
+                       status.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.white))
+                        cv.backgroundTintList = (ContextCompat.getColorStateList(itemView.context, R.color.orange))
                     }
                     else -> {
                         status.setTextColor(ContextCompat.getColor(itemView.context, R.color.green))
+                        cv.backgroundTintList = (ContextCompat.getColorStateList(itemView.context, R.color.green_muda))
                     }
                 }
 
