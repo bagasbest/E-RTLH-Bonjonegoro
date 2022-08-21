@@ -81,23 +81,33 @@ class HomeActivity : AppCompatActivity() {
             mProgressDialog.setCanceledOnTouchOutside(false)
             mProgressDialog.show()
 
+            val finalSurveyList = ArrayList<SurveyModel>()
             surveyList.forEach {
                 if(it.status1 == "Belum Diupload") {
+                    finalSurveyList.add(it)
+                }
+            }
+
+
+            for(i in 0 until finalSurveyList.size) {
+                Log.e("dasa", i.toString())
+                if (finalSurveyList[i].status1 == "Belum Diupload") {
                     var ktp = ""
                     var samping = ""
                     var dalam = ""
 
                     val options = arrayOf("ktp", "tampak_samping_rumah", "tampak_dalam_rumah")
-                    val images = arrayOf(it.ktp1, it.samping1, it.dalamRumah1)
-                    for(i in 0 until 3) {
-                        val imageFileName = "${options[i]}/image_" + System.currentTimeMillis() + ".png"
+                    val images = arrayOf(finalSurveyList[i].ktp1, finalSurveyList[i].samping1, finalSurveyList[i].dalamRumah1)
+                    for (j in 0 until 3) {
+                        val imageFileName =
+                            "${options[j]}/image_" + System.currentTimeMillis() + ".png"
                         /// proses upload gambar ke databsae
                         val mStorageRef = FirebaseStorage.getInstance().reference
-                        mStorageRef.child(imageFileName).putFile(Uri.parse(images[i]))
+                        mStorageRef.child(imageFileName).putFile(Uri.parse(images[j]))
                             .addOnSuccessListener { _ ->
                                 mStorageRef.child(imageFileName).downloadUrl
                                     .addOnSuccessListener { uri: Uri ->
-                                        when (i) {
+                                        when (j) {
                                             0 -> {
                                                 ktp = uri.toString()
                                             }
@@ -108,52 +118,58 @@ class HomeActivity : AppCompatActivity() {
                                                 dalam = uri.toString()
 
                                                 val data = mapOf(
-                                                    "id" to it.id1,
-                                                    "uid" to it.uid1,
-                                                    "nama" to it.nama1,
-                                                    "nik" to it.nik1,
-                                                    "noKK" to it.noKK1,
-                                                    "alamat" to it.alamat1,
-                                                    "desa" to it.desa1,
-                                                    "kecamatan" to it.kecamatan1,
-                                                    "jumlahKK" to it.jumlahKK1,
-                                                    "jumlahPenghuni" to it.jumlahPenghuni1,
-                                                    "penghasilanKK" to it.penghasilan1,
-                                                    "luasRumah" to it.luasRumah1,
-                                                    "fondasi" to it.pondasi1,
-                                                    "sloof" to it.sloof1,
-                                                    "kolom" to it.kolom1,
-                                                    "ringBalok" to it.ringBalok1,
-                                                    "kudaKuda" to it.kudaKuda1,
-                                                    "dinding" to it.dinding1,
-                                                    "lantai" to it.lantai1,
-                                                    "penutupAtap" to it.penutupAtap1,
-                                                    "statusPenguasaanLahan" to it.statusPenguasaanLahan1,
-                                                    "koordinat" to it.koordinat1,
+                                                    "id" to finalSurveyList[i].id1,
+                                                    "uid" to finalSurveyList[i].uid1,
+                                                    "nama" to finalSurveyList[i].nama1,
+                                                    "nik" to finalSurveyList[i].nik1,
+                                                    "noKK" to finalSurveyList[i].noKK1,
+                                                    "alamat" to finalSurveyList[i].alamat1,
+                                                    "desa" to finalSurveyList[i].desa1,
+                                                    "kecamatan" to finalSurveyList[i].kecamatan1,
+                                                    "jumlahKK" to finalSurveyList[i].jumlahKK1,
+                                                    "jumlahPenghuni" to finalSurveyList[i].jumlahPenghuni1,
+                                                    "penghasilanKK" to finalSurveyList[i].penghasilan1,
+                                                    "luasRumah" to finalSurveyList[i].luasRumah1,
+                                                    "fondasi" to finalSurveyList[i].pondasi1,
+                                                    "sloof" to finalSurveyList[i].sloof1,
+                                                    "kolom" to finalSurveyList[i].kolom1,
+                                                    "ringBalok" to finalSurveyList[i].ringBalok1,
+                                                    "kudaKuda" to finalSurveyList[i].kudaKuda1,
+                                                    "dinding" to finalSurveyList[i].dinding1,
+                                                    "lantai" to finalSurveyList[i].lantai1,
+                                                    "penutupAtap" to finalSurveyList[i].penutupAtap1,
+                                                    "statusPenguasaanLahan" to finalSurveyList[i].statusPenguasaanLahan1,
+                                                    "koordinat" to finalSurveyList[i].koordinat1,
                                                     "ktp" to ktp,
                                                     "samping" to dalam,
                                                     "dalamRumah" to samping,
                                                     "status" to "Sudah Diupload",
-                                                    "date" to it.date1)
+                                                    "date" to finalSurveyList[i].date1
+                                                )
 
                                                 FirebaseFirestore
                                                     .getInstance()
                                                     .collection("survey")
-                                                    .document(it.id1.toString())
+                                                    .document(finalSurveyList[i].id1.toString())
                                                     .set(data)
                                                     .addOnCompleteListener { response ->
-                                                        if(response.isSuccessful) {
+                                                        if (response.isSuccessful) {
 
-                                                            val db = DBHelper(this@HomeActivity, null)
+                                                            val db =
+                                                                DBHelper(this@HomeActivity, null)
 
-                                                            surveyList.forEach { surveyData ->
+                                                            finalSurveyList.forEach { surveyData ->
                                                                 db.editStatusSurvey(surveyData.id1)
                                                             }
 
-                                                            Log.e("Dasada", "sasasa")
+                                                            Log.e("ddasa",i.toString() + " " + finalSurveyList.size.toString())
 
-                                                            showSuccessDialog()
-                                                            mProgressDialog.dismiss()
+                                                            if (i == finalSurveyList.size-1) {
+                                                                Log.e("ddasa","sada")
+                                                                showSuccessDialog()
+                                                                mProgressDialog.dismiss()
+                                                            }
+
                                                         }
                                                     }
 
@@ -216,7 +232,7 @@ class HomeActivity : AppCompatActivity() {
 
         if(cursor != null) {
             if(cursor.count > 0) {
-                cursor!!.moveToFirst()
+                cursor.moveToFirst()
                 val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
                 val uid = cursor.getString(cursor.getColumnIndex(DBHelper.uid))
                 val nama = cursor.getString(cursor.getColumnIndex(DBHelper.nama))

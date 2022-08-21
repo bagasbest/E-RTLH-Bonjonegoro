@@ -211,43 +211,90 @@ class SurveyActivity : AppCompatActivity() {
             val luasRumah = luasRumah.text.toString().trim()
             val koordinat = koordinat.text.toString().trim()
 
-            val c = Calendar.getInstance()
-            val df = SimpleDateFormat("dd MMMM yyyy, hh:mm", Locale.getDefault())
-            val formattedDate = df.format(c.time)
+            if(nama.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else if (nik.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "NIK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else if (noKK.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "NO KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (alamat.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "ALAMAT tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (desa.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "DESA tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (kecamatan.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "KECAMATAN tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (jumlahKK.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "Jumlah KK dalam 1 rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (jumlahPenghuni.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "Jumlah penghuni rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (penghasilan.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "Penghasilan per KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (luasRumah.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "Luas Rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (koordinat.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "koordinat tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (ktpp == "") {
+                Toast.makeText(this@SurveyActivity, "KTP tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (samping == "") {
+                Toast.makeText(this@SurveyActivity, "Foto tampak samping tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (dalamRumah == "") {
+                Toast.makeText(this@SurveyActivity, "Foto dalam rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (fondasi == "") {
+                Toast.makeText(this@SurveyActivity, "Fondasi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (sloof == "") {
+                Toast.makeText(this@SurveyActivity, "Sloof tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (kolom == "") {
+                Toast.makeText(this@SurveyActivity, "Kolom tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (ringBalok == "") {
+                Toast.makeText(this@SurveyActivity, "Ring Balok tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (kudaKuda == "") {
+                Toast.makeText(this@SurveyActivity, "Kuda - Kuda tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (dinding == "") {
+                Toast.makeText(this@SurveyActivity, "Dinding tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (lantai == "") {
+                Toast.makeText(this@SurveyActivity, "Lantai tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (penutupAtap == "") {
+                Toast.makeText(this@SurveyActivity, "Penutup Atap tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (statusPenguasaanLahan == "") {
+                Toast.makeText(this@SurveyActivity, "Status Penguasaan Lahan tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else {
+                val c = Calendar.getInstance()
+                val df = SimpleDateFormat("dd MMMM yyyy, hh:mm", Locale.getDefault())
+                val formattedDate = df.format(c.time)
 
-            val db = DBHelper(this@SurveyActivity, null)
+                val db = DBHelper(this@SurveyActivity, null)
 
-            db.addSurvey(
-                uid,
-                nama,
-                nik,
-                noKK,
-                alamat,
-                desa,
-                kecamatan,
-                jumlahKK,
-                jumlahPenghuni,
-                penghasilan,
-                luasRumah,
-                fondasi,
-                sloof,
-                kolom,
-                ringBalok,
-                kudaKuda,
-                dinding,
-                lantai,
-                penutupAtap,
-                statusPenguasaanLahan,
-                koordinat,
-                ktpp,
-                samping,
-                dalamRumah,
-                "Belum Diupload",
-                formattedDate
-            )
+                db.addSurvey(
+                    uid,
+                    nama,
+                    nik,
+                    noKK,
+                    alamat,
+                    desa,
+                    kecamatan,
+                    jumlahKK,
+                    jumlahPenghuni,
+                    penghasilan,
+                    luasRumah,
+                    fondasi,
+                    sloof,
+                    kolom,
+                    ringBalok,
+                    kudaKuda,
+                    dinding,
+                    lantai,
+                    penutupAtap,
+                    statusPenguasaanLahan,
+                    koordinat,
+                    ktpp,
+                    samping,
+                    dalamRumah,
+                    "Belum Diupload",
+                    formattedDate
+                )
 
-            showSuccessDialog()
-
+                showSuccessDialog()
+            }
         }
     }
 
@@ -258,21 +305,18 @@ class SurveyActivity : AppCompatActivity() {
         if (resultCode == RESULT_OK) {
             when (requestCode) {
                 REQUEST_KTP_GALLERY -> {
-                    uploadImageToDatabase(data?.data, "ktp")
                     ktpp = data?.data.toString()
                     Glide.with(this)
                         .load(data?.data)
                         .into(binding.ktp)
                 }
                 REQUEST_SAMPING_GALLERY -> {
-                    uploadImageToDatabase(data?.data, "samping_rumah")
                     samping = data?.data.toString()
                     Glide.with(this)
                         .load(data?.data)
                         .into(binding.fotoTampakSamping)
                 }
                 REQUEST_DALAM_RUMAH_GALLERY -> {
-                    uploadImageToDatabase(data?.data, "dalam_rumah")
                     dalamRumah = data?.data.toString()
                     Glide.with(this)
                         .load(data?.data)
@@ -280,57 +324,6 @@ class SurveyActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-
-    /// fungsi untuk mengupload foto kedalam cloud storage
-    private fun uploadImageToDatabase(data: Uri?, dir: String) {
-
-        // val mStorageRef = FirebaseStorage.getInstance().reference
-
-//        val mProgressDialog = ProgressDialog(this)
-//        mProgressDialog.setMessage("Mohon tunggu hingga proses selesai...")
-//        mProgressDialog.setCanceledOnTouchOutside(false)
-//        mProgressDialog.show()
-//
-//
-//        val imageFileName = "$dir/image_" + System.currentTimeMillis() + ".png"
-//        /// proses upload gambar ke databsae
-//        mStorageRef.child(imageFileName).putFile(data!!)
-//            .addOnSuccessListener {
-//                mStorageRef.child(imageFileName).downloadUrl
-//                    .addOnSuccessListener { uri: Uri ->
-//
-//                        /// proses upload selesai, berhasil
-//                        mProgressDialog.dismiss()
-//                        image = uri.toString()
-//                        Glide.with(this)
-//                            .load(image)
-//                            .into(binding!!.image)
-//                    }
-//
-//                    /// proses upload selesai, gagal
-//                    .addOnFailureListener { e: Exception ->
-//                        mProgressDialog.dismiss()
-//                        Toast.makeText(
-//                            this,
-//                            "Gagal mengunggah gambar",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        Log.d("imageDp: ", e.toString())
-//                    }
-//            }
-//            /// proses upload selesai, gagal
-//            .addOnFailureListener { e: Exception ->
-//                mProgressDialog.dismiss()
-//                Toast.makeText(
-//                    this,
-//                    "Gagal mengunggah gambar",
-//                    Toast.LENGTH_SHORT
-//                )
-//                    .show()
-//                Log.d("imageDp: ", e.toString())
-//            }
     }
 
 
@@ -559,8 +552,6 @@ class SurveyActivity : AppCompatActivity() {
                     nik.setText("")
                     noKK.setText("")
                     alamat.setText("")
-                    desa.setText("")
-                    kecamatan.setText("")
                     jumlahKK.setText("")
                     jumlahPenghuni.setText("")
                     penghasilanKK.setText("")

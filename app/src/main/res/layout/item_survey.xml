@@ -24,6 +24,8 @@
             android:ellipsize="end"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
+            android:layout_marginEnd="16dp"
+            android:maxLines="1"
             android:text="Nama Lengkap"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -34,10 +36,14 @@
 
         <TextView
             android:id="@+id/nik"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginEnd="16dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:text="NIK: "
+            app:layout_constraintEnd_toStartOf="@+id/status"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 

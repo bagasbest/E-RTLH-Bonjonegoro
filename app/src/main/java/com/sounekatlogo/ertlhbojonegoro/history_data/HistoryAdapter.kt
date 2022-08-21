@@ -15,10 +15,12 @@ import com.sounekatlogo.ertlhbojonegoro.survey.SurveyModel
 class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
     private val surveyList = ArrayList<SurveyModel>()
+    private var option = ""
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(items: ArrayList<SurveyModel>) {
+    fun setData(items: ArrayList<SurveyModel>, option: String) {
         surveyList.clear()
         surveyList.addAll(items)
+        this.option = option
         notifyDataSetChanged()
     }
 
@@ -40,7 +42,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
 
                 when (model.status1) {
-                    "Belum Dipuload" -> {
+                    "Belum Diupload" -> {
                         status.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_red_dark))
                     }
                     else -> {
@@ -51,6 +53,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
                 cv.setOnClickListener {
                     val intent = Intent(itemView.context, HistoryDetailActivity::class.java)
                     intent.putExtra(HistoryDetailActivity.EXTRA_DATA, model)
+                    intent.putExtra(HistoryDetailActivity.OPTION, option)
                     itemView.context.startActivity(intent)
                 }
 

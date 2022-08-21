@@ -15,6 +15,12 @@ class HistoryServerActivity : AppCompatActivity() {
     private var adapter: HistoryAdapter? = null
     private var role = ""
 
+    override fun onResume() {
+        super.onResume()
+        initRecyclerView()
+        initViewModel()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityHistoryServerBinding.inflate(layoutInflater)
@@ -30,10 +36,6 @@ class HistoryServerActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             onBackPressed()
         }
-
-        initRecyclerView()
-        initViewModel()
-
     }
 
     private fun initRecyclerView() {
@@ -58,7 +60,7 @@ class HistoryServerActivity : AppCompatActivity() {
         }
         viewModel.getHistory().observe(this) { historySurvey ->
             if (historySurvey.size > 0) {
-                adapter?.setData(historySurvey)
+                adapter?.setData(historySurvey, "server")
                 binding.noData.visibility = View.GONE
             } else {
                 binding.noData.visibility = View.VISIBLE

@@ -20,13 +20,16 @@ class HistoryActivity : AppCompatActivity() {
     private var adapter : HistoryAdapter? = null
     private var surveyList = ArrayList<SurveyModel>()
 
+    override fun onResume() {
+        super.onResume()
+        getData()
+        initRecyclerView()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        getData()
-        initRecyclerView()
 
         binding.backButton.setOnClickListener {
             onBackPressed()
@@ -207,7 +210,7 @@ class HistoryActivity : AppCompatActivity() {
                     )
                 }
 
-                adapter?.setData(surveyList)
+                adapter?.setData(surveyList, "local")
                 cursor.close()
             } else {
                 if(surveyList.size == 0) {
@@ -226,7 +229,7 @@ class HistoryActivity : AppCompatActivity() {
         binding.rvSurvery.layoutManager = layoutManager
         adapter = HistoryAdapter()
         binding.rvSurvery.adapter = adapter
-        adapter!!.setData(surveyList)
+        adapter!!.setData(surveyList, "local")
     }
 
     override fun onDestroy() {

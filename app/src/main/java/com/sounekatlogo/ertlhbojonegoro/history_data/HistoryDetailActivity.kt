@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.firestore.FirebaseFirestore
 import com.sounekatlogo.ertlhbojonegoro.HomeActivity
 import com.sounekatlogo.ertlhbojonegoro.LoginActivity
 import com.sounekatlogo.ertlhbojonegoro.R
@@ -43,6 +44,7 @@ class HistoryDetailActivity : AppCompatActivity() {
     private val REQUEST_KTP_GALLERY = 1001
     private val REQUEST_SAMPING_GALLERY = 1002
     private val REQUEST_DALAM_RUMAH_GALLERY = 1003
+    private var option = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +52,10 @@ class HistoryDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         model = intent.getParcelableExtra(EXTRA_DATA)
+        option = intent.getStringExtra(OPTION).toString()
+//        if(option == "local") {
+//            binding.delete.visibility = View.VISIBLE
+//        }
         binding.apply {
             if (model?.status1 == "Belum Diupload") {
                 save.visibility = View.VISIBLE
@@ -242,7 +248,14 @@ class HistoryDetailActivity : AppCompatActivity() {
             }
 
             delete.setOnClickListener {
-                deleteConformation()
+                Log.e("dasadas", option)
+                if(option == "local")
+                {
+                    deleteConformation()
+                }
+                else {
+                    deleteFromFirebase()
+                }
             }
 
             ktp.setOnClickListener {
@@ -255,21 +268,45 @@ class HistoryDetailActivity : AppCompatActivity() {
 
             fotoTampakSamping.setOnClickListener {
                 val intent = Intent(this@HistoryDetailActivity, PhotoActivity::class.java)
-                intent.putExtra(PhotoActivity.option, "Foto Tampak Samping")
+                intent.putExtra(PhotoActivity.option, "Tampak Samping")
                 intent.putExtra(PhotoActivity.name, model?.nama1)
-                intent.putExtra(PhotoActivity.image, model?.ktp1)
+                intent.putExtra(PhotoActivity.image, model?.samping1)
                 startActivity(intent)
             }
 
             fotoDalamRumah.setOnClickListener {
                 val intent = Intent(this@HistoryDetailActivity, PhotoActivity::class.java)
-                intent.putExtra(PhotoActivity.option, "Foto Dalam Rumah")
+                intent.putExtra(PhotoActivity.option, "Dalam Rumah")
                 intent.putExtra(PhotoActivity.name, model?.nama1)
-                intent.putExtra(PhotoActivity.image, model?.ktp1)
+                intent.putExtra(PhotoActivity.image, model?.dalamRumah1)
                 startActivity(intent)
             }
         }
 
+    }
+
+    private fun deleteFromFirebase() {
+        AlertDialog.Builder(this)
+            .setTitle("Konfirmasi Menghapus Survey")
+            .setMessage("Apakah anda yakin ingin menghapus survey ini ?")
+            .setIcon(R.drawable.ic_baseline_warning_24)
+            .setPositiveButton("YA") { dialogInterface, _ ->
+                dialogInterface.dismiss()
+
+                FirebaseFirestore
+                    .getInstance()
+                    .collection("survey")
+                    .document(model?.id1.toString())
+                    .delete()
+                    .addOnCompleteListener {
+                        if(it.isSuccessful) {
+                            binding.delete.visibility = View.GONE
+                            Toast.makeText(this, "Berhasil menghapus survey", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+            .setNegativeButton("TIDAK", null)
+            .show()
     }
 
     private fun deleteConformation() {
@@ -279,16 +316,12 @@ class HistoryDetailActivity : AppCompatActivity() {
             .setIcon(R.drawable.ic_baseline_warning_24)
             .setPositiveButton("YA") { dialogInterface, _ ->
                 dialogInterface.dismiss()
+                binding.delete.visibility = View.GONE
                 val db = DBHelper(this@HistoryDetailActivity, null)
-
                 db.delete(model?.id1)
                 Toast.makeText(this, "Berhasil menghapus survey", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, HomeActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-                finish()
             }
+            .setNegativeButton("TIDAK", null)
             .show()
     }
 
@@ -306,43 +339,92 @@ class HistoryDetailActivity : AppCompatActivity() {
             val luasRumah = luasRumah.text.toString().trim()
             val koordinat = koordinat.text.toString().trim()
 
-            val c = Calendar.getInstance()
-            val df = SimpleDateFormat("dd MMMM yyyy, hh:mm", Locale.getDefault())
-            val formattedDate = df.format(c.time)
+            if(nama.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else if (nik.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "NIK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else if (noKK.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "NO KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (alamat.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "ALAMAT tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (desa.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "DESA tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (kecamatan.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "KECAMATAN tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (jumlahKK.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "Jumlah KK dalam 1 rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (jumlahPenghuni.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "Jumlah penghuni rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (penghasilan.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "Penghasilan per KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (luasRumah.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "Luas Rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (koordinat.isEmpty()) {
+                Toast.makeText(this@HistoryDetailActivity, "koordinat tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (ktpp == "") {
+                Toast.makeText(this@HistoryDetailActivity, "KTP tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (samping == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Foto tampak samping tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (dalamRumah == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Foto dalam rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (fondasi == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Fondasi tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (sloof == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Sloof tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (kolom == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Kolom tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (ringBalok == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Ring Balok tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (kudaKuda == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Kuda - Kuda tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (dinding == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Dinding tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (lantai == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Lantai tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (penutupAtap == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Penutup Atap tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            }else if (statusPenguasaanLahan == "") {
+                Toast.makeText(this@HistoryDetailActivity, "Status Penguasaan Lahan tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else {
 
-            val db = DBHelper(this@HistoryDetailActivity, null)
+                val c = Calendar.getInstance()
+                val df = SimpleDateFormat("dd MMMM yyyy, hh:mm", Locale.getDefault())
+                val formattedDate = df.format(c.time)
 
-            db.editSurvey(
-                model!!.id1,
-                model!!.uid1,
-                nama,
-                nik,
-                noKK,
-                alamat,
-                desa,
-                kecamatan,
-                jumlahKK,
-                jumlahPenghuni,
-                penghasilan,
-                luasRumah,
-                fondasi,
-                sloof,
-                kolom,
-                ringBalok,
-                kudaKuda,
-                dinding,
-                lantai,
-                penutupAtap,
-                statusPenguasaanLahan,
-                koordinat,
-                ktpp,
-                samping,
-                dalamRumah,
-                "Belum Diupload",
-                formattedDate
-            )
+                val db = DBHelper(this@HistoryDetailActivity, null)
 
-            showSuccessDialog()
+                db.editSurvey(
+                    model!!.id1,
+                    model!!.uid1,
+                    nama,
+                    nik,
+                    noKK,
+                    alamat,
+                    desa,
+                    kecamatan,
+                    jumlahKK,
+                    jumlahPenghuni,
+                    penghasilan,
+                    luasRumah,
+                    fondasi,
+                    sloof,
+                    kolom,
+                    ringBalok,
+                    kudaKuda,
+                    dinding,
+                    lantai,
+                    penutupAtap,
+                    statusPenguasaanLahan,
+                    koordinat,
+                    ktpp,
+                    samping,
+                    dalamRumah,
+                    "Belum Diupload",
+                    formattedDate
+                )
+
+                showSuccessDialog()
+            }
         }
     }
 
@@ -679,6 +761,7 @@ class HistoryDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DATA = "data"
+        const val OPTION = "option"
     }
 
     override fun onDestroy() {

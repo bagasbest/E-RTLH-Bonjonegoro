@@ -28,6 +28,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="16sp"
+            android:visibility="visible"
             android:layout_marginEnd="16dp"
             android:src="@drawable/ic_baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
@@ -629,6 +630,7 @@
                         android:id="@+id/ktp"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
+                        android:scaleType="centerCrop"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -679,6 +681,7 @@
                         android:id="@+id/fotoTampakSamping"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
+                        android:scaleType="centerCrop"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -729,6 +732,7 @@
                         android:id="@+id/fotoDalamRumah"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
+                        android:scaleType="centerCrop"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
