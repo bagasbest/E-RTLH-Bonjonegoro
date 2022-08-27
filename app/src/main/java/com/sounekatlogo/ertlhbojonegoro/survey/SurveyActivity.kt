@@ -2,6 +2,7 @@ package com.sounekatlogo.ertlhbojonegoro.survey
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,6 +11,7 @@ import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Looper
+import android.os.PersistableBundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
@@ -57,6 +59,8 @@ class SurveyActivity : AppCompatActivity() {
     private val REQUEST_DALAM_RUMAH_GALLERY = 1003
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val permissionID = 101
+    private var mProgressDialog: ProgressDialog? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,9 +68,10 @@ class SurveyActivity : AppCompatActivity() {
         setContentView(binding.root)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         checkDistance()
+        mProgressDialog = ProgressDialog(this)
 
 
-        val prefs =  getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
         uid = prefs.getString("uid", "").toString()
         desa1 = prefs.getString("desa", "").toString()
         kecamatan1 = prefs.getString("kecamatan", "").toString()
@@ -80,6 +85,7 @@ class SurveyActivity : AppCompatActivity() {
             }
 
             ktpHint.setOnClickListener {
+                showProgressBar()
                 ImagePicker.with(this@SurveyActivity)
                     .cameraOnly()
                     .compress(1024)
@@ -87,6 +93,7 @@ class SurveyActivity : AppCompatActivity() {
             }
 
             fotoTampakSampingHint.setOnClickListener {
+                showProgressBar()
                 ImagePicker.with(this@SurveyActivity)
                     .cameraOnly()
                     .compress(1024)
@@ -94,6 +101,7 @@ class SurveyActivity : AppCompatActivity() {
             }
 
             fotoDalamRumahHint.setOnClickListener {
+                showProgressBar()
                 ImagePicker.with(this@SurveyActivity)
                     .cameraOnly()
                     .compress(1024)
@@ -104,10 +112,49 @@ class SurveyActivity : AppCompatActivity() {
                 saveFormSurvey()
             }
         }
-
-
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("fondasi", fondasi)
+        outState.putString("sloof", sloof)
+        outState.putString("ringBalok", ringBalok)
+        outState.putString("kudaKuda", kudaKuda)
+        outState.putString("dinding", dinding)
+        outState.putString("lantai", lantai)
+        outState.putString("penutupAtap", penutupAtap)
+        outState.putString("statusPenguasaanLahan", statusPenguasaanLahan)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        fondasi = savedInstanceState.getString("fondasi").toString()
+        sloof = savedInstanceState.getString("sloof").toString()
+        ringBalok = savedInstanceState.getString("ringBalok").toString()
+        kudaKuda = savedInstanceState.getString("kudaKuda").toString()
+        dinding = savedInstanceState.getString("dinding").toString()
+        lantai = savedInstanceState.getString("lantai").toString()
+        penutupAtap = savedInstanceState.getString("penutupAtap").toString()
+        statusPenguasaanLahan = savedInstanceState.getString("statusPenguasaanLahan").toString()
+    }
+
+    private fun showProgressBar() {
+        mProgressDialog?.setMessage("Mohon tunggu hingga proses selesai...")
+        mProgressDialog?.setCanceledOnTouchOutside(false)
+        mProgressDialog?.show()
+    }
+
+    private fun unchecked() {
+        binding.rga.clearCheck()
+        binding.rgb.clearCheck()
+        binding.rgbb.clearCheck()
+        binding.rgc.clearCheck()
+        binding.rgd.clearCheck()
+        binding.rge.clearCheck()
+        binding.rgee.clearCheck()
+        binding.rgf.clearCheck()
+        binding.rgg.clearCheck()
+    }
     @SuppressLint("SetTextI18n", "MissingPermission")
     private fun checkDistance() {
         if (checkPermissions()) {
@@ -158,7 +205,8 @@ class SurveyActivity : AppCompatActivity() {
     }
 
     private fun isLocationEnabled(): Boolean {
-        val locationManager: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager: LocationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
             LocationManager.NETWORK_PROVIDER
         )
@@ -182,13 +230,20 @@ class SurveyActivity : AppCompatActivity() {
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(
             this,
-            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
             permissionID
         )
     }
 
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == permissionID) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
@@ -199,6 +254,7 @@ class SurveyActivity : AppCompatActivity() {
 
     private fun saveFormSurvey() {
         binding.apply {
+            penghasilanKK.setLocale(Locale.US)
             val nama = nama.text.toString().trim()
             val nik = nik.text.toString().trim()
             val noKK = noKK.text.toString().trim()
@@ -211,52 +267,123 @@ class SurveyActivity : AppCompatActivity() {
             val luasRumah = luasRumah.text.toString().trim()
             val koordinat = koordinat.text.toString().trim()
 
-            if(nama.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
+
+            if (nama.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "Nama tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
             } else if (nik.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "NIK tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SurveyActivity, "NIK tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (nik.length != 16) {
+                Toast.makeText(this@SurveyActivity, "NIK harus 16 digit", Toast.LENGTH_SHORT).show()
             } else if (noKK.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "NO KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (alamat.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "ALAMAT tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (desa.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "DESA tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (kecamatan.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "KECAMATAN tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (jumlahKK.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "Jumlah KK dalam 1 rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (jumlahPenghuni.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "Jumlah penghuni rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (penghasilan.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "Penghasilan per KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (luasRumah.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "Luas Rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (koordinat.isEmpty()) {
-                Toast.makeText(this@SurveyActivity, "koordinat tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (ktpp == "") {
-                Toast.makeText(this@SurveyActivity, "KTP tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (samping == "") {
-                Toast.makeText(this@SurveyActivity, "Foto tampak samping tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (dalamRumah == "") {
-                Toast.makeText(this@SurveyActivity, "Foto dalam rumah tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (fondasi == "") {
-                Toast.makeText(this@SurveyActivity, "Fondasi tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (sloof == "") {
-                Toast.makeText(this@SurveyActivity, "Sloof tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (kolom == "") {
-                Toast.makeText(this@SurveyActivity, "Kolom tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (ringBalok == "") {
-                Toast.makeText(this@SurveyActivity, "Ring Balok tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (kudaKuda == "") {
-                Toast.makeText(this@SurveyActivity, "Kuda - Kuda tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (dinding == "") {
-                Toast.makeText(this@SurveyActivity, "Dinding tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (lantai == "") {
-                Toast.makeText(this@SurveyActivity, "Lantai tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (penutupAtap == "") {
-                Toast.makeText(this@SurveyActivity, "Penutup Atap tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (statusPenguasaanLahan == "") {
-                Toast.makeText(this@SurveyActivity, "Status Penguasaan Lahan tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SurveyActivity, "NO KK tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (noKK.length != 16) {
+                Toast.makeText(this@SurveyActivity, "NO KK harus 16 digit", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (alamat.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "ALAMAT tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (desa.isEmpty()) {
+                Toast.makeText(this@SurveyActivity, "DESA tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (kecamatan.isEmpty()) {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "KECAMATAN tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (jumlahKK.isEmpty()) {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Jumlah KK dalam 1 rumah tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (jumlahPenghuni.isEmpty()) {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Jumlah penghuni rumah tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (penghasilan.isEmpty()) {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Penghasilan per KK tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (luasRumah.isEmpty()) {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Luas Rumah tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (koordinat.isEmpty()) {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "koordinat tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (ktpp == "") {
+                Toast.makeText(this@SurveyActivity, "KTP tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (samping == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Foto tampak samping tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (dalamRumah == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Foto dalam rumah tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (fondasi == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Fondasi tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (sloof == "") {
+                Toast.makeText(this@SurveyActivity, "Sloof tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (kolom == "") {
+                Toast.makeText(this@SurveyActivity, "Kolom tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (ringBalok == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Ring Balok tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (kudaKuda == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Kuda - Kuda tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (dinding == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Dinding tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (lantai == "") {
+                Toast.makeText(this@SurveyActivity, "Lantai tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (penutupAtap == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Penutup Atap tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (statusPenguasaanLahan == "") {
+                Toast.makeText(
+                    this@SurveyActivity,
+                    "Status Penguasaan Lahan tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 val c = Calendar.getInstance()
                 val df = SimpleDateFormat("dd MMMM yyyy, hh:mm", Locale.getDefault())
@@ -264,6 +391,7 @@ class SurveyActivity : AppCompatActivity() {
 
                 val db = DBHelper(this@SurveyActivity, null)
 
+                val serverUid = System.currentTimeMillis().toString()
                 db.addSurvey(
                     uid,
                     nama,
@@ -290,6 +418,7 @@ class SurveyActivity : AppCompatActivity() {
                     samping,
                     dalamRumah,
                     "Belum Diupload",
+                    serverUid,
                     formattedDate
                 )
 
@@ -302,6 +431,7 @@ class SurveyActivity : AppCompatActivity() {
     /// ini adalah program untuk menambahkan gambar kedalalam halaman ini
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        mProgressDialog?.dismiss()
         if (resultCode == RESULT_OK) {
             when (requestCode) {
                 REQUEST_KTP_GALLERY -> {
@@ -339,16 +469,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.a1 ->
                         if (checked) {
-                            fondasi = a1.text.toString()
+                            fondasi = "0"
                         }
                     R.id.a2 ->
                         if (checked) {
-                            fondasi = a2.text.toString()
+                            fondasi = "1"
                         }
 
                     R.id.a3 ->
                         if (checked) {
-                            fondasi = a3.text.toString()
+                            fondasi = "2"
                         }
                 }
             }
@@ -362,16 +492,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.b1 ->
                         if (checked) {
-                            sloof = b1.text.toString()
+                            sloof = "0"
                         }
                     R.id.b2 ->
                         if (checked) {
-                            sloof = b2.text.toString()
+                            sloof = "1"
                         }
 
                     R.id.b3 ->
                         if (checked) {
-                            sloof = b3.text.toString()
+                            sloof = "2"
                         }
                 }
             }
@@ -385,16 +515,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.bb1 ->
                         if (checked) {
-                            kolom = bb1.text.toString()
+                            kolom = "0"
                         }
                     R.id.bb2 ->
                         if (checked) {
-                            kolom = bb2.text.toString()
+                            kolom = "1"
                         }
 
                     R.id.bb3 ->
                         if (checked) {
-                            kolom = bb3.text.toString()
+                            kolom = "2"
                         }
                 }
             }
@@ -408,16 +538,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.c1 ->
                         if (checked) {
-                            ringBalok = c1.text.toString()
+                            ringBalok = "0"
                         }
                     R.id.c2 ->
                         if (checked) {
-                            ringBalok = c2.text.toString()
+                            ringBalok = "1"
                         }
 
                     R.id.c3 ->
                         if (checked) {
-                            ringBalok = c3.text.toString()
+                            ringBalok = "2"
                         }
                 }
             }
@@ -431,16 +561,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.d1 ->
                         if (checked) {
-                            kudaKuda = d1.text.toString()
+                            kudaKuda = "0"
                         }
                     R.id.d2 ->
                         if (checked) {
-                            kudaKuda = d2.text.toString()
+                            kudaKuda = "1"
                         }
 
                     R.id.d3 ->
                         if (checked) {
-                            kudaKuda = d3.text.toString()
+                            kudaKuda = "2"
                         }
                 }
             }
@@ -454,16 +584,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.e1 ->
                         if (checked) {
-                            dinding = e1.text.toString()
+                            dinding = "0"
                         }
                     R.id.e2 ->
                         if (checked) {
-                            dinding = e2.text.toString()
+                            dinding = "1"
                         }
 
                     R.id.e3 ->
                         if (checked) {
-                            dinding = e3.text.toString()
+                            dinding = "2"
                         }
                 }
             }
@@ -477,16 +607,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.ee1 ->
                         if (checked) {
-                            lantai = ee1.text.toString()
+                            lantai = "0"
                         }
                     R.id.ee2 ->
                         if (checked) {
-                            lantai = ee2.text.toString()
+                            lantai = "1"
                         }
 
                     R.id.ee3 ->
                         if (checked) {
-                            lantai = ee3.text.toString()
+                            lantai = "2"
                         }
                 }
             }
@@ -500,16 +630,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.f1 ->
                         if (checked) {
-                            penutupAtap = f1.text.toString()
+                            penutupAtap = "0"
                         }
                     R.id.f2 ->
                         if (checked) {
-                            penutupAtap = f2.text.toString()
+                            penutupAtap = "1"
                         }
 
                     R.id.f3 ->
                         if (checked) {
-                            penutupAtap = f3.text.toString()
+                            penutupAtap = "2"
                         }
                 }
             }
@@ -523,16 +653,16 @@ class SurveyActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.g1 ->
                         if (checked) {
-                            statusPenguasaanLahan = g1.text.toString()
+                            statusPenguasaanLahan = "0"
                         }
                     R.id.g2 ->
                         if (checked) {
-                            statusPenguasaanLahan = g2.text.toString()
+                            statusPenguasaanLahan = "1"
                         }
 
                     R.id.g3 ->
                         if (checked) {
-                            statusPenguasaanLahan = g3.text.toString()
+                            statusPenguasaanLahan = "2"
                         }
                 }
             }
@@ -556,7 +686,6 @@ class SurveyActivity : AppCompatActivity() {
                     jumlahPenghuni.setText("")
                     penghasilanKK.setText("")
                     luasRumah.setText("")
-                    koordinat.setText("")
                     ktpp = ""
                     samping = ""
                     dalamRumah = ""
@@ -573,6 +702,10 @@ class SurveyActivity : AppCompatActivity() {
                     penutupAtap = ""
                     uid = ""
                     statusPenguasaanLahan = ""
+                    unchecked()
+                    ktp.setImageResource(0)
+                    fotoTampakSamping.setImageResource(0)
+                    fotoDalamRumah.setImageResource(0)
                 }
             }
             .show()

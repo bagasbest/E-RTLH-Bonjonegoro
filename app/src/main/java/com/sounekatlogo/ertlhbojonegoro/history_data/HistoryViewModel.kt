@@ -47,6 +47,7 @@ class HistoryViewModel : ViewModel() {
                             ringBalok1 = document.data["ringBalok"].toString(),
                             samping1 = document.data["samping"].toString(),
                             sloof1 = document.data["sloof"].toString(),
+                            serverUid1 = document.data["serverUid"].toString(),
                             status1 = document.data["status"].toString(),
                             statusPenguasaanLahan1 = document.data["statusPenguasaanLahan"].toString(),
                             uid1 = document.data["uid"].toString()
@@ -98,6 +99,7 @@ class HistoryViewModel : ViewModel() {
                             penutupAtap1 = document.data["penutupAtap"].toString(),
                             ringBalok1 = document.data["ringBalok"].toString(),
                             samping1 = document.data["samping"].toString(),
+                            serverUid1 = document.data["serverUid"].toString(),
                             sloof1 = document.data["sloof"].toString(),
                             status1 = document.data["status"].toString(),
                             statusPenguasaanLahan1 = document.data["statusPenguasaanLahan"].toString(),

@@ -73,6 +73,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nik"
                     android:hint="NIK"
+                    android:maxLength="16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -89,6 +90,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/noKK"
                     android:hint="Nomor KK"
+                    android:maxLength="16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -191,10 +193,11 @@
                 android:layout_marginTop="10dp">
 
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.cottacush.android.currencyedittext.CurrencyEditText
                     android:id="@+id/penghasilanKK"
-                    android:hint="Penghasilan KK per Bulan"
+                    android:hint="Penghasilan per KK"
                     android:layout_width="match_parent"
+                    app:useCurrencySymbolAsHint="false"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
 
@@ -230,6 +233,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -269,6 +273,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -307,6 +312,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgbb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -345,6 +351,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -383,6 +390,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -422,6 +430,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -461,6 +470,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -500,6 +510,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -540,6 +551,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rgg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

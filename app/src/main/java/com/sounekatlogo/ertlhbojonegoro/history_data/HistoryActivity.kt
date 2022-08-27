@@ -114,6 +114,7 @@ class HistoryActivity : AppCompatActivity() {
                 val dalam = cursor.getString(cursor.getColumnIndex(DBHelper.dalamRumah))
                 val status = cursor.getString(cursor.getColumnIndex(DBHelper.status))
                 val date = cursor.getString(cursor.getColumnIndex(DBHelper.date))
+                val serverUid = cursor.getString(cursor.getColumnIndex(DBHelper.serverUid))
 
                 surveyList.add(
                     SurveyModel(
@@ -143,6 +144,7 @@ class HistoryActivity : AppCompatActivity() {
                         samping1 = samping,
                         dalamRumah1 = dalam,
                         status1 = status,
+                        serverUid1 = serverUid,
                         date1 = date,
                     )
                 )
@@ -176,6 +178,7 @@ class HistoryActivity : AppCompatActivity() {
                     val dalam = cursor.getString(cursor.getColumnIndex(DBHelper.dalamRumah))
                     val status = cursor.getString(cursor.getColumnIndex(DBHelper.status))
                     val date = cursor.getString(cursor.getColumnIndex(DBHelper.date))
+                    val serverUid = cursor.getString(cursor.getColumnIndex(DBHelper.serverUid))
 
                     surveyList.add(
                         SurveyModel(
@@ -205,6 +208,7 @@ class HistoryActivity : AppCompatActivity() {
                             samping1 = samping,
                             dalamRumah1 = dalam,
                             status1 = status,
+                            serverUid1 = serverUid,
                             date1 = date,
                         )
                     )

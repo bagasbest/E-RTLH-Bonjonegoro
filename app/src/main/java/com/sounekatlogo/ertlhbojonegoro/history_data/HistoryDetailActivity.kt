@@ -1,5 +1,6 @@
 package com.sounekatlogo.ertlhbojonegoro.history_data
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -45,11 +46,14 @@ class HistoryDetailActivity : AppCompatActivity() {
     private val REQUEST_SAMPING_GALLERY = 1002
     private val REQUEST_DALAM_RUMAH_GALLERY = 1003
     private var option = ""
+    private var mProgressDialog: ProgressDialog? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityHistoryDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        mProgressDialog = ProgressDialog(this)
 
         model = intent.getParcelableExtra(EXTRA_DATA)
         option = intent.getStringExtra(OPTION).toString()
@@ -89,111 +93,111 @@ class HistoryDetailActivity : AppCompatActivity() {
 
 
             when (fondasi) {
-                a1.text.toString() -> {
+                "0" -> {
                     a1.isChecked = true
                 }
-                a2.text.toString() -> {
+                "1" -> {
                     a2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     a3.isChecked = true
                 }
             }
 
             when (sloof) {
-                b1.text.toString() -> {
+                "0" -> {
                     b1.isChecked = true
                 }
-                b2.text.toString() -> {
+                "1" -> {
                     b2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     b1.isChecked = true
                 }
             }
 
             when (kolom) {
-                bb1.text.toString() -> {
+               "0" -> {
                     bb1.isChecked = true
                 }
-                bb2.text.toString() -> {
+               "1" -> {
                     bb2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     bb3.isChecked = true
                 }
             }
 
             when (ringBalok) {
-                c1.text.toString() -> {
+                "0" -> {
                     c1.isChecked = true
                 }
-                c2.text.toString() -> {
+                "1" -> {
                     c2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     c3.isChecked = true
                 }
             }
 
             when (kudaKuda) {
-                d1.text.toString() -> {
+                "0" -> {
                     d1.isChecked = true
                 }
-                d2.text.toString() -> {
+                "1" -> {
                     d2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     d3.isChecked = true
                 }
             }
 
 
             when (dinding) {
-                e1.text.toString() -> {
+                "0" -> {
                     e1.isChecked = true
                 }
-                e2.text.toString() -> {
+                "1" -> {
                     e2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     e3.isChecked = true
                 }
             }
 
             when (lantai) {
-                ee1.text.toString() -> {
+                "0" -> {
                     ee1.isChecked = true
                 }
-                ee2.text.toString() -> {
+                "1" -> {
                     ee2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     ee3.isChecked = true
                 }
             }
 
 
             when (penutupAtap) {
-                f1.text.toString() -> {
+                "0" -> {
                     f1.isChecked = true
                 }
-                f2.text.toString() -> {
+                "1" -> {
                     f2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     f3.isChecked = true
                 }
             }
 
             when (statusPenguasaanLahan) {
-                g1.text.toString() -> {
+               "0" -> {
                     g1.isChecked = true
                 }
-                g2.text.toString() -> {
+                "1" -> {
                     g2.isChecked = true
                 }
-                else -> {
+                "2" -> {
                     g3.isChecked = true
                 }
             }
@@ -223,6 +227,7 @@ class HistoryDetailActivity : AppCompatActivity() {
             }
 
             ktpHint.setOnClickListener {
+                showProgressBar()
                 ImagePicker.with(this@HistoryDetailActivity)
                     .cameraOnly()
                     .compress(1024)
@@ -230,6 +235,7 @@ class HistoryDetailActivity : AppCompatActivity() {
             }
 
             fotoTampakSampingHint.setOnClickListener {
+                showProgressBar()
                 ImagePicker.with(this@HistoryDetailActivity)
                     .cameraOnly()
                     .compress(1024)
@@ -237,6 +243,7 @@ class HistoryDetailActivity : AppCompatActivity() {
             }
 
             fotoDalamRumahHint.setOnClickListener {
+                showProgressBar()
                 ImagePicker.with(this@HistoryDetailActivity)
                     .cameraOnly()
                     .compress(1024)
@@ -248,7 +255,6 @@ class HistoryDetailActivity : AppCompatActivity() {
             }
 
             delete.setOnClickListener {
-                Log.e("dasadas", option)
                 if(option == "local")
                 {
                     deleteConformation()
@@ -285,6 +291,12 @@ class HistoryDetailActivity : AppCompatActivity() {
 
     }
 
+    private fun showProgressBar() {
+        mProgressDialog?.setMessage("Mohon tunggu hingga proses selesai...")
+        mProgressDialog?.setCanceledOnTouchOutside(false)
+        mProgressDialog?.show()
+    }
+
     private fun deleteFromFirebase() {
         AlertDialog.Builder(this)
             .setTitle("Konfirmasi Menghapus Survey")
@@ -293,10 +305,12 @@ class HistoryDetailActivity : AppCompatActivity() {
             .setPositiveButton("YA") { dialogInterface, _ ->
                 dialogInterface.dismiss()
 
+                Log.e("dsada", model?.serverUid1.toString())
+
                 FirebaseFirestore
                     .getInstance()
                     .collection("survey")
-                    .document(model?.id1.toString())
+                    .document(model?.serverUid1.toString())
                     .delete()
                     .addOnCompleteListener {
                         if(it.isSuccessful) {
@@ -327,6 +341,7 @@ class HistoryDetailActivity : AppCompatActivity() {
 
     private fun updateData() {
         binding.apply {
+            penghasilanKK.setLocale(Locale.US)
             val nama = nama.text.toString().trim()
             val nik = nik.text.toString().trim()
             val noKK = noKK.text.toString().trim()
@@ -343,9 +358,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 Toast.makeText(this@HistoryDetailActivity, "Nama tidak boleh kosong", Toast.LENGTH_SHORT).show()
             } else if (nik.isEmpty()) {
                 Toast.makeText(this@HistoryDetailActivity, "NIK tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            } else if (noKK.isEmpty()) {
+            }else if (nik.length != 16) {
+                Toast.makeText(this@HistoryDetailActivity, "NIK harus 16 digit", Toast.LENGTH_SHORT).show()
+            }
+            else if (noKK.isEmpty()) {
                 Toast.makeText(this@HistoryDetailActivity, "NO KK tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }else if (alamat.isEmpty()) {
+            } else if (noKK.length != 16) {
+                Toast.makeText(this@HistoryDetailActivity, "NO KK harus 16 digit", Toast.LENGTH_SHORT).show()
+            }
+
+            else if (alamat.isEmpty()) {
                 Toast.makeText(this@HistoryDetailActivity, "ALAMAT tidak boleh kosong", Toast.LENGTH_SHORT).show()
             }else if (desa.isEmpty()) {
                 Toast.makeText(this@HistoryDetailActivity, "DESA tidak boleh kosong", Toast.LENGTH_SHORT).show()
@@ -420,6 +442,7 @@ class HistoryDetailActivity : AppCompatActivity() {
                     samping,
                     dalamRumah,
                     "Belum Diupload",
+                    model?.serverUid1!!,
                     formattedDate
                 )
 
@@ -431,24 +454,22 @@ class HistoryDetailActivity : AppCompatActivity() {
     /// ini adalah program untuk menambahkan gambar kedalalam halaman ini
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        mProgressDialog?.dismiss()
         if (resultCode == RESULT_OK) {
             when (requestCode) {
                 REQUEST_KTP_GALLERY -> {
-                    uploadImageToDatabase(data?.data, "ktp")
                     ktpp = data?.data.toString()
                     Glide.with(this)
                         .load(data?.data)
                         .into(binding.ktp)
                 }
                 REQUEST_SAMPING_GALLERY -> {
-                    uploadImageToDatabase(data?.data, "samping_rumah")
                     samping = data?.data.toString()
                     Glide.with(this)
                         .load(data?.data)
                         .into(binding.fotoTampakSamping)
                 }
                 REQUEST_DALAM_RUMAH_GALLERY -> {
-                    uploadImageToDatabase(data?.data, "dalam_rumah")
                     dalamRumah = data?.data.toString()
                     Glide.with(this)
                         .load(data?.data)
@@ -456,56 +477,6 @@ class HistoryDetailActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    /// fungsi untuk mengupload foto kedalam cloud storage
-    private fun uploadImageToDatabase(data: Uri?, dir: String) {
-
-        // val mStorageRef = FirebaseStorage.getInstance().reference
-
-//        val mProgressDialog = ProgressDialog(this)
-//        mProgressDialog.setMessage("Mohon tunggu hingga proses selesai...")
-//        mProgressDialog.setCanceledOnTouchOutside(false)
-//        mProgressDialog.show()
-//
-//
-//        val imageFileName = "$dir/image_" + System.currentTimeMillis() + ".png"
-//        /// proses upload gambar ke databsae
-//        mStorageRef.child(imageFileName).putFile(data!!)
-//            .addOnSuccessListener {
-//                mStorageRef.child(imageFileName).downloadUrl
-//                    .addOnSuccessListener { uri: Uri ->
-//
-//                        /// proses upload selesai, berhasil
-//                        mProgressDialog.dismiss()
-//                        image = uri.toString()
-//                        Glide.with(this)
-//                            .load(image)
-//                            .into(binding!!.image)
-//                    }
-//
-//                    /// proses upload selesai, gagal
-//                    .addOnFailureListener { e: Exception ->
-//                        mProgressDialog.dismiss()
-//                        Toast.makeText(
-//                            this,
-//                            "Gagal mengunggah gambar",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        Log.d("imageDp: ", e.toString())
-//                    }
-//            }
-//            /// proses upload selesai, gagal
-//            .addOnFailureListener { e: Exception ->
-//                mProgressDialog.dismiss()
-//                Toast.makeText(
-//                    this,
-//                    "Gagal mengunggah gambar",
-//                    Toast.LENGTH_SHORT
-//                )
-//                    .show()
-//                Log.d("imageDp: ", e.toString())
-//            }
     }
 
 
@@ -516,16 +487,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.a1 ->
                         if (checked) {
-                            fondasi = a1.text.toString()
+                            fondasi = "0"
                         }
                     R.id.a2 ->
                         if (checked) {
-                            fondasi = a2.text.toString()
+                            fondasi = "1"
                         }
 
                     R.id.a3 ->
                         if (checked) {
-                            fondasi = a3.text.toString()
+                            fondasi = "2"
                         }
                 }
             }
@@ -539,16 +510,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.b1 ->
                         if (checked) {
-                            sloof = b1.text.toString()
+                            sloof = "0"
                         }
                     R.id.b2 ->
                         if (checked) {
-                            sloof = b2.text.toString()
+                            sloof = "1"
                         }
 
                     R.id.b3 ->
                         if (checked) {
-                            sloof = b3.text.toString()
+                            sloof = "2"
                         }
                 }
             }
@@ -562,16 +533,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.bb1 ->
                         if (checked) {
-                            kolom = bb1.text.toString()
+                            kolom = "0"
                         }
                     R.id.bb2 ->
                         if (checked) {
-                            kolom = bb2.text.toString()
+                            kolom = "1"
                         }
 
                     R.id.bb3 ->
                         if (checked) {
-                            kolom = bb3.text.toString()
+                            kolom = "2"
                         }
                 }
             }
@@ -585,16 +556,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.c1 ->
                         if (checked) {
-                            ringBalok = c1.text.toString()
+                            ringBalok = "0"
                         }
                     R.id.c2 ->
                         if (checked) {
-                            ringBalok = c2.text.toString()
+                            ringBalok = "1"
                         }
 
                     R.id.c3 ->
                         if (checked) {
-                            ringBalok = c3.text.toString()
+                            ringBalok = "2"
                         }
                 }
             }
@@ -608,16 +579,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.d1 ->
                         if (checked) {
-                            kudaKuda = d1.text.toString()
+                            kudaKuda = "0"
                         }
                     R.id.d2 ->
                         if (checked) {
-                            kudaKuda = d2.text.toString()
+                            kudaKuda = "1"
                         }
 
                     R.id.d3 ->
                         if (checked) {
-                            kudaKuda = d3.text.toString()
+                            kudaKuda = "2"
                         }
                 }
             }
@@ -631,16 +602,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.e1 ->
                         if (checked) {
-                            dinding = e1.text.toString()
+                            dinding = "0"
                         }
                     R.id.e2 ->
                         if (checked) {
-                            dinding = e2.text.toString()
+                            dinding = "1"
                         }
 
                     R.id.e3 ->
                         if (checked) {
-                            dinding = e3.text.toString()
+                            dinding = "2"
                         }
                 }
             }
@@ -654,16 +625,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.ee1 ->
                         if (checked) {
-                            lantai = ee1.text.toString()
+                            lantai = "0"
                         }
                     R.id.ee2 ->
                         if (checked) {
-                            lantai = ee2.text.toString()
+                            lantai = "1"
                         }
 
                     R.id.ee3 ->
                         if (checked) {
-                            lantai = ee3.text.toString()
+                            lantai = "2"
                         }
                 }
             }
@@ -677,16 +648,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.f1 ->
                         if (checked) {
-                            penutupAtap = f1.text.toString()
+                            penutupAtap = "0"
                         }
                     R.id.f2 ->
                         if (checked) {
-                            penutupAtap = f2.text.toString()
+                            penutupAtap = "1"
                         }
 
                     R.id.f3 ->
                         if (checked) {
-                            penutupAtap = f3.text.toString()
+                            penutupAtap = "2"
                         }
                 }
             }
@@ -700,16 +671,16 @@ class HistoryDetailActivity : AppCompatActivity() {
                 when (view.getId()) {
                     R.id.g1 ->
                         if (checked) {
-                            statusPenguasaanLahan = g1.text.toString()
+                            statusPenguasaanLahan = "0"
                         }
                     R.id.g2 ->
                         if (checked) {
-                            statusPenguasaanLahan = g2.text.toString()
+                            statusPenguasaanLahan = "1"
                         }
 
                     R.id.g3 ->
                         if (checked) {
-                            statusPenguasaanLahan = g3.text.toString()
+                            statusPenguasaanLahan = "2"
                         }
                 }
             }

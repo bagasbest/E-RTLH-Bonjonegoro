@@ -120,6 +120,7 @@ class HomeActivity : AppCompatActivity() {
                                                 val data = mapOf(
                                                     "id" to finalSurveyList[i].id1,
                                                     "uid" to finalSurveyList[i].uid1,
+                                                    "serverUid" to finalSurveyList[i].serverUid1,
                                                     "nama" to finalSurveyList[i].nama1,
                                                     "nik" to finalSurveyList[i].nik1,
                                                     "noKK" to finalSurveyList[i].noKK1,
@@ -150,7 +151,7 @@ class HomeActivity : AppCompatActivity() {
                                                 FirebaseFirestore
                                                     .getInstance()
                                                     .collection("survey")
-                                                    .document(finalSurveyList[i].id1.toString())
+                                                    .document(finalSurveyList[i].serverUid1)
                                                     .set(data)
                                                     .addOnCompleteListener { response ->
                                                         if (response.isSuccessful) {
@@ -260,6 +261,7 @@ class HomeActivity : AppCompatActivity() {
                 val dalam = cursor.getString(cursor.getColumnIndex(DBHelper.dalamRumah))
                 val status = cursor.getString(cursor.getColumnIndex(DBHelper.status))
                 val date = cursor.getString(cursor.getColumnIndex(DBHelper.date))
+                val serverUid = cursor.getString(cursor.getColumnIndex(DBHelper.serverUid))
 
                 surveyList.add(
                     SurveyModel(
@@ -289,6 +291,7 @@ class HomeActivity : AppCompatActivity() {
                         samping1 = samping,
                         dalamRumah1 = dalam,
                         status1 = status,
+                        serverUid1 = serverUid,
                         date1 = date,
                     )
                 )
@@ -322,6 +325,7 @@ class HomeActivity : AppCompatActivity() {
                     val dalam = cursor.getString(cursor.getColumnIndex(DBHelper.dalamRumah))
                     val status = cursor.getString(cursor.getColumnIndex(DBHelper.status))
                     val date = cursor.getString(cursor.getColumnIndex(DBHelper.date))
+                    val serverUid = cursor.getString(cursor.getColumnIndex(DBHelper.serverUid))
 
                     surveyList.add(
                         SurveyModel(
@@ -351,10 +355,13 @@ class HomeActivity : AppCompatActivity() {
                             samping1 = samping,
                             dalamRumah1 = dalam,
                             status1 = status,
+                            serverUid1 = serverUid,
                             date1 = date,
                         )
                     )
                 }
+
+
                 adapter?.setData(surveyList)
                 var belumDiupload = 0
                 var sudahDiupload = 0
@@ -408,6 +415,8 @@ class HomeActivity : AppCompatActivity() {
             .setIcon(R.drawable.ic_baseline_warning_24)
             .setPositiveButton("YA") { dialogInterface, _ ->
                 dialogInterface.dismiss()
+                val prefs = getSharedPreferences("USER_DATA", Context.MODE_PRIVATE)
+                prefs.edit().clear().apply()
                 FirebaseAuth.getInstance().signOut()
 
                 val intent = Intent(this, LoginActivity::class.java)

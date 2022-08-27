@@ -40,6 +40,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
                 samping + " TEXT," +
                 dalamRumah + " TEXT," +
                 status + " TEXT," +
+                serverUid + " TEXT," +
                 date + " TEXT" + ")")
 
         // we are calling sqlite
@@ -80,6 +81,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         samping1: String,
         dalamRumah1: String,
         status1: String,
+        serverUid1: String,
         date1: String,
     ) {
 
@@ -114,6 +116,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put(samping, samping1)
         values.put(dalamRumah, dalamRumah1)
         values.put(status, status1)
+        values.put(serverUid, serverUid1)
         values.put(date, date1)
 
         // here we are creating a
@@ -172,6 +175,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         samping1: String,
         dalamRumah1: String,
         status1: String,
+        serverUid1: String,
         date1: String,
     ) {
         // calling a method to get writable database.
@@ -208,6 +212,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put(samping, samping1)
         values.put(dalamRumah, dalamRumah1)
         values.put(status, status1)
+        values.put(serverUid, serverUid1)
         values.put(date, date1)
 
         db.update(TABLE_NAME, values, "id=?", arrayOf(id1.toString()))
@@ -273,5 +278,6 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         val dalamRumah = "dalamRumah"
         val status = "status"
         val date = "date"
+        val serverUid = "serverUid"
     }
 }

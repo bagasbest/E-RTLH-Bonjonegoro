@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.sounekatlogo.ertlhbojonegoro.databinding.ActivityLoginBinding
+import com.sounekatlogo.ertlhbojonegoro.register.RegisterUserActivity
 import com.sounekatlogo.ertlhbojonegoro.utils.GPSTracker
 
 class LoginActivity : AppCompatActivity() {
@@ -25,8 +27,13 @@ class LoginActivity : AppCompatActivity() {
 
         binding.login.setOnClickListener {
            login()
+            //register()
         }
 
+    }
+
+    private fun register() {
+        startActivity(Intent(this, RegisterUserActivity::class.java))
     }
 
     private fun login() {
@@ -61,7 +68,8 @@ class LoginActivity : AppCompatActivity() {
                                     editor.putString("uid",uid)
                                     editor.apply()
 
-                                    autoLogin()
+                                    startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                                    finish()
 
                                 }
 
@@ -76,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun autoLogin() {
         if(FirebaseAuth.getInstance().currentUser != null) {
+            Log.e("dasadas", FirebaseAuth.getInstance().currentUser!!.uid)
             binding.progressBar.visibility = View.GONE
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
